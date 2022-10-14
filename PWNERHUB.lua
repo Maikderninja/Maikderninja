@@ -420,6 +420,13 @@ Duration = 5
 local c = 1 function zigzag(X)  return math.acos(math.cos(X * math.pi)) / math.pi end game:GetService("RunService").RenderStepped:Connect(function()  if game.Workspace.Camera:FindFirstChild('Arms') then   for i,v in pairs(game.Workspace.Camera.Arms:GetDescendants()) do    if v.ClassName == 'MeshPart' then      v.Color = Color3.fromHSV(zigzag(c),1,1)     c = c + .0001    end   end  end end)
 end)
 
+KillingCheats:CreateButton("Infnite ammo", function()
+while wait() do
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount.Value = 999
+    game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount2.Value = 999
+end
+end)
+
 local KillingCheats = PhantomForcesWindow:NewSection("Player")
 
 KillingCheats:CreateDropdown("Speed", {"15", "30", "50", "70", "100"}, 2, function(speed)
