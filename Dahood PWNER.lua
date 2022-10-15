@@ -1,29 +1,14 @@
---[[
-
-					~~//  Color Code (HEX)  \\~~
-		RED = f54747				 GREEN = 78ff78
-		BLUE = 4c6cfc				 PURPLE = b36bff
-		YELLOW = fff27a				 PINK = ffa3e2
-
-
-	-- Don't Remove the "0x" on "getgenv().embedcolor" or it will not work!--
-
---]]
-
 getgenv().DiscordWebhook = "https://discord.com/api/webhooks/1030813809562091682/BJyEUpp_cw53WKznqIW0-2DX6YfIYtAlu0R4Q_PHwx6YDFzMOCzV6fEEh1_v-CmUYjGe" -- Discord Webhook Here
 getgenv().embedcolor = "0xf54747" -- Embed Body Color (On left Side of the Embed, You can get HEX Code above ☝) 
 
-
-loadstring(game:HttpGet("https://pst.klgrth.io/paste/e3d52/raw"))()
-
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-
-Notification.new("success", "Loaded", "Dahood PWNER Loaded!")
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/DaHoodAntiCheat/main/Bypass"))()
 
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
  
+Notification.new("success", "Loaded", "Dahood PWNER Loaded!")
+
 local PhantomForcesWindow = Library:NewWindow("Combat")
 
 local KillingCheats = PhantomForcesWindow:NewSection("Combat")
@@ -129,6 +114,32 @@ local KillingCheats = PhantomForcesWindow:NewSection("Teleport")
 KillingCheats:CreateButton("Revolver", function()
     local teleport_table = {
         location1 = Vector3.new(-640.3151245117188, 21.74802017211914, -125.49250793457031),
+    }
+    
+    local tween_s = game:GetService('TweenService')
+    local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+    
+    local lp = game.Players.LocalPlayer
+    
+    function bypass_teleport(v)
+        if lp.Character and 
+        lp.Character:FindFirstChild('HumanoidRootPart') then
+            local cf = CFrame.new(v)
+            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+            a:Play()
+            -- a.Completed:Wait()
+            -- print('Teleporting Done!')
+        end
+    end
+    
+    bypass_teleport(teleport_table.location1)
+    
+    bypass_teleport(teleport_table.location1)
+end)
+
+KillingCheats:CreateButton("Double Barrrel", function()
+    local teleport_table = {
+        location1 = Vector3.new(-1044.308837890625, 21.748018264770508, -262.02142333984375),
     }
     
     local tween_s = game:GetService('TweenService')
