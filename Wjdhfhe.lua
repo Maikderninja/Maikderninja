@@ -48,6 +48,7 @@ Pwnerhub.TextColor3 = Color3.fromRGB(255, 255, 255)
 Pwnerhub.TextSize = 45.000
 Pwnerhub.TextStrokeTransparency = 0.000
 Pwnerhub.MouseButton1Down:Connect(function()
+script.Parent.Parent.Parent:Destroy()
 	local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
 	local PhantomForcesWindow = Library:NewWindow("Arsenal PWNERS V2")
@@ -601,6 +602,7 @@ Pwnerhublite.TextSize = 45.000
 Pwnerhublite.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 Pwnerhublite.TextStrokeTransparency = 0.000
 Pwnerhublite.MouseButton1Down:Connect(function()
+script.Parent.Parent.Parent:Destroy()
 	local CurrentCamera = workspace.CurrentCamera
 	local Players = game.Players
 	local LocalPlayer = Players.LocalPlayer
