@@ -8,6 +8,7 @@ Title = "Silent aim has been executed",
 Text = "aim go brrrrrr", 
 Duration = 5
 })
+
 local CurrentCamera = workspace.CurrentCamera
 local Players = game.Players
 local LocalPlayer = Players.LocalPlayer
@@ -31,29 +32,9 @@ function ClosestPlayer()
     end
     return Closest
 end
-local MT = getrawmetatable(game)
-local OldNC = MT.__namecall
-local OldIDX = MT.__index
-setreadonly(MT, false)
-MT.__namecall = newcclosure(function(self, ...)
-    local Args, Method = {...}, getnamecallmethod()
-    if Method == "FindPartOnRayWithIgnoreList" and not checkcaller() then
-        local CP = ClosestPlayer()
-        if CP and CP.Character and CP.Character.FindFirstChild(CP.Character, "Head") then
-            Args[1] = Ray.new(CurrentCamera.CFrame.Position, (CP.Character.Head.Position - CurrentCamera.CFrame.Position).Unit * 1000)
-            return OldNC(self, unpack(Args))
-        end
-    end
-    return OldNC(self, ...)
-end)
-MT.__index = newcclosure(function(self, K)
-    if K == "Clips" then
-        return workspace.Map
-    end
-    return OldIDX(self, K)
-end)
 setreadonly(MT, true)
 end)
+
 KillingCheats:CreateToggle("Semi wallbang", function(wallbang)
 _G.Enable = wallbang
 local MT = getrawmetatable(game)
