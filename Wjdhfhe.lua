@@ -1,14 +1,11 @@
-
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
 local PhantomForcesWindow = Library:NewWindow("Arsenal PWNERS V2")
-
 local KillingCheats = PhantomForcesWindow:NewSection("Combat")
-
 KillingCheats:CreateButton("Silent Aim", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Silent aim has been executed",
 Text = "aim go brrrrrr", 
-
 Duration = 5
 })
 local CurrentCamera = workspace.CurrentCamera
@@ -57,7 +54,6 @@ MT.__index = newcclosure(function(self, K)
 end)
 setreadonly(MT, true)
 end)
-
 KillingCheats:CreateToggle("Semi wallbang", function(wallbang)
 _G.Enable = wallbang
 local MT = getrawmetatable(game)
@@ -77,7 +73,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(Key, _)
     end
 end)
 end)
-
 KillingCheats:CreateToggle("Aimbot", function(aimbot)
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -87,10 +82,8 @@ local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local Camera = workspace.CurrentCamera
 local sc = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
-
 local Down = true
 local Inset = GuiService:GetGuiInset()
-
 --// Options \\--
 getgenv().Options = {
     Enabled = aimbot,
@@ -100,7 +93,6 @@ getgenv().Options = {
     AimPart = "Head",
     FOV = 150
 }
-
 --// Functions \\--
 local gc = function()
 	local nearest = math.huge
@@ -128,7 +120,6 @@ local gc = function()
 	end
 	return nearplr
 end -- google chrome made this but i modified it for it to use teamcheck
-
 function Circle()
     local circ = Drawing.new('Circle')
     circ.Transparency = 1
@@ -178,796 +169,212 @@ RunService.RenderStepped:Connect(function( ... )
     end
 end)
 end)
-
 local KillingCheats = PhantomForcesWindow:NewSection("Visuals")
-
-KillingCheats:CreateToggle("Esp box", function(box)
-local function API_Check()
-
-            if Drawing == nil then
-
-                return "No"
-            else
-                return "Yes"
-            end
-        end
-        
-        local Find_Required = API_Check()
-        
-        if Find_Required == "No" then
-            game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "An error lol";
-                Text = "Boxes script could not be loaded because your exploit is unsupported.";
-                Duration = math.huge;
-                Button1 = "OK"
-            })
-        
-            return
-        end
-        
-        local Players = game:GetService("Players")
-        local RunService = game:GetService("RunService")
-        local UserInputService = game:GetService("UserInputService")
-        local Camera = workspace.CurrentCamera
-        
-        local Typing = false
-        
-        _G.SendNotifications = false   -- If set to true then the script would notify you frequently on any changes applied and when loaded / errored. (If a game can detect this, it is recommended to set it to false)
-        _G.DefaultSettings = false   -- If set to true then the boxes script would run with default settings regardless of any changes you made.
-        
-        _G.TeamCheck = true   -- If set to true then the script would create boxes only for the enemy team members.
-        
-        _G.BoxesVisible = box   -- If set to true then the boxes will be visible and vice versa.
-        _G.LineColor = Color3.fromRGB(255, 255, 255)   -- The color that the boxes would appear as.
-        _G.LineThickness = 1   -- The thickness of the boxes.
-        _G.LineTransparency = 0.7   -- The transparency of the boxes.
-        _G.SizeIncrease = 1   -- How much the box's size is increased (The size is multiplied by the value of this variable). (1 is default, anything more then 2 is not recommended) <float> / <int>
-        
-        _G.DisableKey = Enum.KeyCode.RightAlt   -- The key that disables / enables the boxes.
-        
-        local function CreateBoxes()
-            for _, v in next, Players:GetPlayers() do
-                if v.Name ~= Players.LocalPlayer.Name then
-                    local TopLeftLine = Drawing.new("Line")
-                    local TopRightLine = Drawing.new("Line")
-                    local BottomLeftLine = Drawing.new("Line")
-                    local BottomRightLine = Drawing.new("Line")
-        
-                    RunService.RenderStepped:Connect(function()
-                        if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then 
-                            TopLeftLine.Thickness = _G.LineThickness
-                            TopLeftLine.Transparency = _G.LineTransparency
-                            TopLeftLine.Color = _G.LineColor
-        
-                            TopRightLine.Thickness = _G.LineThickness
-                            TopRightLine.Transparency = _G.LineTransparency
-                            TopRightLine.Color = _G.LineColor
-        
-                            BottomLeftLine.Thickness = _G.LineThickness
-                            BottomLeftLine.Transparency = _G.LineTransparency
-                            BottomLeftLine.Color = _G.LineColor
-        
-                            BottomRightLine.Thickness = _G.LineThickness
-                            BottomRightLine.Transparency = _G.LineTransparency
-                            BottomRightLine.Color = _G.LineColor
-                            
-                            local HumanoidRootPart_Position, HumanoidRootPart_Size = workspace[v.Name].HumanoidRootPart.CFrame, workspace[v.Name].HumanoidRootPart.Size * _G.SizeIncrease
-        
-                            local TopLeftPosition, TopLeftVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(HumanoidRootPart_Size.X,  HumanoidRootPart_Size.Y, 0).p)
-                            local TopRightPosition, TopRightVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(-HumanoidRootPart_Size.X,  HumanoidRootPart_Size.Y, 0).p)
-                            local BottomLeftPosition, BottomLeftVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(HumanoidRootPart_Size.X, -HumanoidRootPart_Size.Y, 0).p)
-                            local BottomRightPosition, BottomRightVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(-HumanoidRootPart_Size.X, -HumanoidRootPart_Size.Y, 0).p)
-        
-                            if TopLeftVisible == true then
-                                TopLeftLine.From = Vector2.new(TopLeftPosition.X, TopLeftPosition.Y)
-                                TopLeftLine.To = Vector2.new(TopRightPosition.X, TopRightPosition.Y)
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        TopLeftLine.Visible = _G.BoxesVisible
-                                    else
-                                        TopLeftLine.Visible = false
-                                    end
-                                else
-                                    TopLeftLine.Visible = _G.BoxesVisible
-                                end
-                            else
-                                TopLeftLine.Visible = false
-                            end
-        
-                            if TopRightVisible == true and _G.BoxesVisible == true then
-                                TopRightLine.From = Vector2.new(TopRightPosition.X, TopRightPosition.Y)
-                                TopRightLine.To = Vector2.new(BottomRightPosition.X, BottomRightPosition.Y)
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        TopRightLine.Visible = _G.BoxesVisible
-                                    else
-                                        TopRightLine.Visible = false
-                                    end
-                                else
-                                    TopRightLine.Visible = _G.BoxesVisible
-                                end
-                            else
-                                TopRightLine.Visible = false
-                            end
-        
-                            if BottomLeftVisible == true and _G.BoxesVisible == true then
-                                BottomLeftLine.From = Vector2.new(BottomLeftPosition.X, BottomLeftPosition.Y)
-                                BottomLeftLine.To = Vector2.new(TopLeftPosition.X, TopLeftPosition.Y)
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        BottomLeftLine.Visible = _G.BoxesVisible
-                                    else
-                                        BottomLeftLine.Visible = false
-                                    end
-                                else
-                                    BottomLeftLine.Visible = _G.BoxesVisible
-                                end
-                            else
-                                BottomLeftLine.Visible = false
-                            end
-        
-                            if BottomRightVisible == true and _G.BoxesVisible == true then
-                                BottomRightLine.From = Vector2.new(BottomRightPosition.X, BottomRightPosition.Y)
-                                BottomRightLine.To = Vector2.new(BottomLeftPosition.X, BottomLeftPosition.Y)
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        BottomRightLine.Visible = _G.BoxesVisible
-                                    else
-                                        BottomRightLine.Visible = false
-                                    end
-                                else
-                                    BottomRightLine.Visible = _G.BoxesVisible
-                                end
-                            else
-                                BottomRightLine.Visible = false
-                            end
-                        else
-                            TopRightLine.Visible = false
-                            TopLeftLine.Visible = false
-                            BottomLeftLine.Visible = false
-                            BottomRightLine.Visible = false
-                        end
-                    end)
-        
-                    Players.PlayerRemoving:Connect(function()
-                        TopRightLine.Visible = false
-                        TopLeftLine.Visible = false
-                        BottomLeftLine.Visible = false
-                        BottomRightLine.Visible = false
-                    end)
-                end
-            end
-        
-            Players.PlayerAdded:Connect(function(Player)
-                Player.CharacterAdded:Connect(function(v)
-                    if v.Name ~= Players.LocalPlayer.Name then
-                        local TopLeftLine = Drawing.new("Line")
-                        local TopRightLine = Drawing.new("Line")
-                        local BottomLeftLine = Drawing.new("Line")
-                        local BottomRightLine = Drawing.new("Line")
-            
-                        RunService.RenderStepped:Connect(function()
-                            if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then 
-                                TopLeftLine.Thickness = _G.LineThickness
-                                TopLeftLine.Transparency = _G.LineTransparency
-                                TopLeftLine.Color = _G.LineColor
-            
-                                TopRightLine.Thickness = _G.LineThickness
-                                TopRightLine.Transparency = _G.LineTransparency
-                                TopRightLine.Color = _G.LineColor
-            
-                                BottomLeftLine.Thickness = _G.LineThickness
-                                BottomLeftLine.Transparency = _G.LineTransparency
-                                BottomLeftLine.Color = _G.LineColor
-            
-                                BottomRightLine.Thickness = _G.LineThickness
-                                BottomRightLine.Transparency = _G.LineTransparency
-                                BottomRightLine.Color = _G.LineColor
-                                
-                                local HumanoidRootPart_Position, HumanoidRootPart_Size = workspace[v.Name].HumanoidRootPart.CFrame, workspace[v.Name].HumanoidRootPart.Size * _G.SizeIncrease
-            
-                                local TopLeftPosition, TopLeftVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(HumanoidRootPart_Size.X,  HumanoidRootPart_Size.Y, 0).p)
-                                local TopRightPosition, TopRightVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(-HumanoidRootPart_Size.X,  HumanoidRootPart_Size.Y, 0).p)
-                                local BottomLeftPosition, BottomLeftVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(HumanoidRootPart_Size.X, -HumanoidRootPart_Size.Y, 0).p)
-                                local BottomRightPosition, BottomRightVisible = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(-HumanoidRootPart_Size.X, -HumanoidRootPart_Size.Y, 0).p)
-            
-                                if TopLeftVisible == true then
-                                    TopLeftLine.From = Vector2.new(TopLeftPosition.X, TopLeftPosition.Y)
-                                    TopLeftLine.To = Vector2.new(TopRightPosition.X, TopRightPosition.Y)
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            TopLeftLine.Visible = _G.BoxesVisible
-                                        else
-                                            TopLeftLine.Visible = false
-                                        end
-                                    else
-                                        TopLeftLine.Visible = _G.BoxesVisible
-                                    end
-                                else
-                                    TopLeftLine.Visible = false
-                                end
-            
-                                if TopRightVisible == true and _G.BoxesVisible == true then
-                                    TopRightLine.From = Vector2.new(TopRightPosition.X, TopRightPosition.Y)
-                                    TopRightLine.To = Vector2.new(BottomRightPosition.X, BottomRightPosition.Y)
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            TopRightLine.Visible = _G.BoxesVisible
-                                        else
-                                            TopRightLine.Visible = false
-                                        end
-                                    else
-                                        TopRightLine.Visible = _G.BoxesVisible
-                                    end
-                                else
-                                    TopRightLine.Visible = false
-                                end
-            
-                                if BottomLeftVisible == true and _G.BoxesVisible == true then
-                                    BottomLeftLine.From = Vector2.new(BottomLeftPosition.X, BottomLeftPosition.Y)
-                                    BottomLeftLine.To = Vector2.new(TopLeftPosition.X, TopLeftPosition.Y)
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            BottomLeftLine.Visible = _G.BoxesVisible
-                                        else
-                                            BottomLeftLine.Visible = false
-                                        end
-                                    else
-                                        BottomLeftLine.Visible = _G.BoxesVisible
-                                    end
-                                else
-                                    BottomLeftLine.Visible = false
-                                end
-            
-                                if BottomRightVisible == true and _G.BoxesVisible == true then
-                                    BottomRightLine.From = Vector2.new(BottomRightPosition.X, BottomRightPosition.Y)
-                                    BottomRightLine.To = Vector2.new(BottomLeftPosition.X, BottomLeftPosition.Y)
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            BottomRightLine.Visible = _G.BoxesVisible
-                                        else
-                                            BottomRightLine.Visible = false
-                                        end
-                                    else
-                                        BottomRightLine.Visible = _G.BoxesVisible
-                                    end
-                                else
-                                    BottomRightLine.Visible = false
-                                end
-                            else
-                                TopRightLine.Visible = false
-                                TopLeftLine.Visible = false
-                                BottomLeftLine.Visible = false
-                                BottomRightLine.Visible = false
-                            end
-                        end)
-            
-                        Players.PlayerRemoving:Connect(function()
-                            TopRightLine.Visible = false
-                            TopLeftLine.Visible = false
-                            BottomLeftLine.Visible = false
-                            BottomRightLine.Visible = false
-                        end)
-                    end
-                end)
-            end)
-        end
-        
-        if _G.DefaultSettings == true then
-            _G.TeamCheck = false
-            _G.BoxesVisible = rue
-            _G.LineColor = Color3.fromRGB(40, 90, 255)
-            _G.LineThickness = 1
-            _G.LineTransparency = 0.5
-            _G.SizeIncrease = 1.5
-            _G.DisableKey = Enum.KeyCode.Q
-        end
-        
-        UserInputService.TextBoxFocused:Connect(function()
-            Typing = true
-        end)
-        
-        UserInputService.TextBoxFocusReleased:Connect(function()
-            Typing = false
-        end)
-        
-        UserInputService.InputBegan:Connect(function(Input)
-            if Input.KeyCode == _G.DisableKey and Typing == false then
-                _G.BoxesVisible = not _G.BoxesVisible
-                
-                if _G.SendNotifications == true then
-                    game:GetService("StarterGui"):SetCore("SendNotification",{
-                        Title = "Exunys Developer";
-                        Text = "The boxes' visibility is now set to "..tostring(_G.BoxesVisible)..".";
-                        Duration = 5;
-                    })
-                end
-            end
-        end)
-        
-        local Success, Errored = pcall(function()
-            CreateBoxes()
-        end)
-        
-        if Success and not Errored then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Ash01";
-                    Text = "Boxes script has successfully loaded.";
-                    Duration = 5;
-                })
-            end
-        elseif Errored and not Success then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Exunys Developer";
-                    Text = "Boxes script has errored while loading, please check the developer console! (F9)";
-                    Duration = 5;
-                })
-            end
-            TestService:Message("The boxes script has errored, please notify Exunys with the following information :")
-            warn(Errored)
-            print("!! IF THE ERROR IS A FALSE POSITIVE (says that a player cannot be found) THEN DO NOT BOTHER !!")
-        end
+KillingCheats:CreateButton("Esp box", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Esp box has been executed lol",
+Text = "Box in a esp form on a player lol", 
+Duration = 5
+})
+-- settings
+local settings = {
+   defaultcolor = Color3.fromRGB(255,0,0),
+   teamcheck = false,
+   teamcolor = true
+};
+-- services
+local runService = game:GetService("RunService");
+local players = game:GetService("Players");
+-- variables
+local localPlayer = players.LocalPlayer;
+local camera = workspace.CurrentCamera;
+-- functions
+local newVector2, newColor3, newDrawing = Vector2.new, Color3.new, Drawing.new;
+local tan, rad = math.tan, math.rad;
+local round = function(...) local a = {}; for i,v in next, table.pack(...) do a[i] = math.round(v); end return unpack(a); end;
+local wtvp = function(...) local a, b = camera.WorldToViewportPoint(camera, ...) return newVector2(a.X, a.Y), b, a.Z end;
+local espCache = {};
+local function createEsp(player)
+   local drawings = {};
+   
+   drawings.box = newDrawing("Square");
+   drawings.box.Thickness = 1;
+   drawings.box.Filled = false;
+   drawings.box.Color = settings.defaultcolor;
+   drawings.box.Visible = false;
+   drawings.box.ZIndex = 2;
+   drawings.boxoutline = newDrawing("Square");
+   drawings.boxoutline.Thickness = 3;
+   drawings.boxoutline.Filled = false;
+   drawings.boxoutline.Color = newColor3();
+   drawings.boxoutline.Visible = false;
+   drawings.boxoutline.ZIndex = 1;
+   espCache[player] = drawings;
+end
+local function removeEsp(player)
+   if rawget(espCache, player) then
+       for _, drawing in next, espCache[player] do
+           drawing:Remove();
+       end
+       espCache[player] = nil;
+   end
+end
+local function updateEsp(player, esp)
+   local character = player and player.Character;
+   if character then
+       local cframe = character:GetModelCFrame();
+       local position, visible, depth = wtvp(cframe.Position);
+       esp.box.Visible = visible;
+       esp.boxoutline.Visible = visible;
+       if cframe and visible then
+           local scaleFactor = 1 / (depth * tan(rad(camera.FieldOfView / 2)) * 2) * 1000;
+           local width, height = round(4 * scaleFactor, 5 * scaleFactor);
+           local x, y = round(position.X, position.Y);
+           esp.box.Size = newVector2(width, height);
+           esp.box.Position = newVector2(round(x - width / 2, y - height / 2));
+           esp.box.Color = settings.teamcolor and player.TeamColor.Color or settings.defaultcolor;
+           esp.boxoutline.Size = esp.box.Size;
+           esp.boxoutline.Position = esp.box.Position;
+       end
+   else
+       esp.box.Visible = false;
+       esp.boxoutline.Visible = false;
+   end
+end
+-- main
+for _, player in next, players:GetPlayers() do
+   if player ~= localPlayer then
+       createEsp(player);
+   end
+end
+players.PlayerAdded:Connect(function(player)
+   createEsp(player);
+end);
+players.PlayerRemoving:Connect(function(player)
+   removeEsp(player);
 end)
-
-KillingCheats:CreateToggle("Tracer", function(tracer)
-local function API_Check()
-
-            if Drawing == nil then
-
-                return "No"
-            else
-                return "Yes"
-            end
-        end
-        
-        local Find_Required = API_Check()
-        
-        if Find_Required == "No" then
-            game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "An error lol";
-                Text = "Tracer script could not be loaded because your exploit is unsupported.";
-                Duration = math.huge;
-                Button1 = "OK"
-            })
-        
-            return
-        end
-        
-        local RunService = game:GetService("RunService")
-        local Players = game:GetService("Players")
-        local Camera = game:GetService("Workspace").CurrentCamera
-        local UserInputService = game:GetService("UserInputService")
-        local TestService = game:GetService("TestService")
-        
-        local Typing = false
-        
-        _G.SendNotifications = false   -- If set to true then the script would notify you frequently on any changes applied and when loaded / errored. (If a game can detect this, it is recommended to set it to false)
-        _G.DefaultSettings = false   -- If set to true then the tracer script would run with default settings regardless of any changes you made.
-        
-        _G.TeamCheck = true   -- If set to true then the script would create tracers only for the enemy team members.
-        
-        --[!]-- ONLY ONE OF THESE VALUES SHOULD BE SET TO TRUE TO NOT ERROR THE SCRIPT --[!]--
-        
-        _G.FromMouse = false   -- If set to true, the tracers will come from the position of your mouse curson on your screen.
-        _G.FromCenter = false   -- If set to true, the tracers will come from the center of your screen.
-        _G.FromBottom = true   -- If set to true, the tracers will come from the bottom of your screen.
-        
-        _G.TracersVisible = tracer   -- If set to true then the tracers will be visible and vice versa.
-        _G.TracerColor = Color3.fromRGB(255, 255, 255)   -- The color that the tracers would appear as.
-        _G.TracerThickness = 1   -- The thickness of the tracers.
-        _G.TracerTransparency = 0.7   -- The transparency of the tracers.
-        
-        _G.ModeSkipKey = Enum.KeyCode.RightAlt   -- The key that changes between modes that indicate where will the tracers come from.
-        _G.DisableKey = Enum.KeyCode.RightAlt   -- The key that disables / enables the tracers.
-        
-        local function CreateTracers()
-            for _, v in next, Players:GetPlayers() do
-                if v.Name ~= game.Players.LocalPlayer.Name then
-                    local TracerLine = Drawing.new("Line")
-            
-                    RunService.RenderStepped:Connect(function()
-                        if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
-                            local HumanoidRootPart_Position, HumanoidRootPart_Size = workspace[v.Name].HumanoidRootPart.CFrame, workspace[v.Name].HumanoidRootPart.Size * 1
-                            local Vector, OnScreen = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(0, -HumanoidRootPart_Size.Y, 0).p)
-                            
-                            TracerLine.Thickness = _G.TracerThickness
-                            TracerLine.Transparency = _G.TracerTransparency
-                            TracerLine.Color = _G.TracerColor
-        
-                            if _G.FromMouse == true and _G.FromCenter == false and _G.FromBottom == false then
-                                TracerLine.From = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
-                            elseif _G.FromMouse == false and _G.FromCenter == true and _G.FromBottom == false then
-                                TracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
-                            elseif _G.FromMouse == false and _G.FromCenter == false and _G.FromBottom == true then
-                                TracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y)
-                            end
-        
-                            if OnScreen == true  then
-                                TracerLine.To = Vector2.new(Vector.X, Vector.Y)
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        TracerLine.Visible = _G.TracersVisible
-                                    else
-                                        TracerLine.Visible = false
-                                    end
-                                else
-                                    TracerLine.Visible = _G.TracersVisible
-                                end
-                            else
-                                TracerLine.Visible = false
-                            end
-                        else
-                            TracerLine.Visible = false
-                        end
-                    end)
-        
-                    Players.PlayerRemoving:Connect(function()
-                        TracerLine.Visible = false
-                    end)
-                end
-            end
-        
-            Players.PlayerAdded:Connect(function(Player)
-                Player.CharacterAdded:Connect(function(v)
-                    if v.Name ~= game.Players.LocalPlayer.Name then
-                        local TracerLine = Drawing.new("Line")
-                
-                        RunService.RenderStepped:Connect(function()
-                            if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
-                                local HumanoidRootPart_Position, HumanoidRootPart_Size = workspace[v.Name].HumanoidRootPart.CFrame, workspace[v.Name].HumanoidRootPart.Size * 1
-                                local Vector, OnScreen = Camera:WorldToViewportPoint(HumanoidRootPart_Position * CFrame.new(0, -HumanoidRootPart_Size.Y, 0).p)
-                                
-                                TracerLine.Thickness = _G.TracerThickness
-                                TracerLine.Transparency = _G.TracerTransparency
-                                TracerLine.Color = _G.TracerColor
-        
-                                if _G.FromMouse == true and _G.FromCenter == false and _G.FromBottom == false then
-                                    TracerLine.From = Vector2.new(UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y)
-                                elseif _G.FromMouse == false and _G.FromCenter == true and _G.FromBottom == false then
-                                    TracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
-                                elseif _G.FromMouse == false and _G.FromCenter == false and _G.FromBottom == true then
-                                    TracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y)
-                                end
-        
-                                if OnScreen == true  then
-                                    TracerLine.To = Vector2.new(Vector.X, Vector.Y)
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            TracerLine.Visible = _G.TracersVisible
-                                        else
-                                            TracerLine.Visible = false
-                                        end
-                                    else
-                                        TracerLine.Visible = _G.TracersVisible
-                                    end
-                                else
-                                    TracerLine.Visible = false
-                                end
-                            else
-                                TracerLine.Visible = false
-                            end
-                        end)
-        
-                        Players.PlayerRemoving:Connect(function()
-                            TracerLine.Visible = false
-                        end)
-                    end
-                end)
-            end)
-        end
-        
-        UserInputService.TextBoxFocused:Connect(function()
-            Typing = true
-        end)
-        
-        UserInputService.TextBoxFocusReleased:Connect(function()
-            Typing = false
-        end)
-        
-        UserInputService.InputBegan:Connect(function(Input)
-            if Input.KeyCode == _G.ModeSkipKey and Typing == false then
-                if _G.FromMouse == true and _G.FromCenter == false and _G.FromBottom == false and _G.TracersVisible == true then
-                    _G.FromCenter = false
-                    _G.FromBottom = true
-                    _G.FromMouse = false
-        
-                    if _G.SendNotifications == true then
-                        game:GetService("StarterGui"):SetCore("SendNotification",{
-                            Title = "Exunys Developer";
-                            Text = "Tracers will be now coming from the bottom of your screen (Mode 1)";
-                            Duration = 5;
-                        })
-                    end
-                elseif _G.FromMouse == false and _G.FromCenter == false and _G.FromBottom == true and _G.TracersVisible == true then
-                    _G.FromCenter = true
-                    _G.FromBottom = false
-                    _G.FromMouse = false
-        
-                    if _G.SendNotifications == true then
-                        game:GetService("StarterGui"):SetCore("SendNotification",{
-                            Title = "Exunys Developer";
-                            Text = "Tracers will be now coming from the center of your screen (Mode 2)";
-                            Duration = 5;
-                        })
-                    end
-                elseif _G.FromMouse == false and _G.FromCenter == true and _G.FromBottom == false and _G.TracersVisible == true then
-                    _G.FromCenter = false
-                    _G.FromBottom = false
-                    _G.FromMouse = true
-        
-                    if _G.SendNotifications == true then
-                        game:GetService("StarterGui"):SetCore("SendNotification",{
-                            Title = "Exunys Developer";
-                            Text = "Tracers will be now coming from the position of your mouse cursor on your screen (Mode 3)";
-                            Duration = 5;
-                        })
-                    end
-                end
-            elseif Input.KeyCode == _G.DisableKey and Typing == false then
-                _G.TracersVisible = not _G.TracersVisible
-                
-                if _G.SendNotifications == true then
-                    game:GetService("StarterGui"):SetCore("SendNotification",{
-                        Title = "Exunys Developer";
-                        Text = "The tracers' visibility is now set to "..tostring(_G.TracersVisible)..".";
-                        Duration = 5;
-                    })
-                end
-            end
-        end)
-        
-        if _G.DefaultSettings == true then
-            _G.TeamCheck = false
-            _G.FromMouse = false
-            _G.FromCenter = false
-            _G.FromBottom = true
-            _G.TracersVisible = true
-            _G.TracerColor = Color3.fromRGB(40, 90, 255)
-            _G.TracerThickness = 1
-            _G.TracerTransparency = 0.5
-            _G.ModeSkipKey = Enum.KeyCode.E
-            _G.DisableKey = Enum.KeyCode.Q
-        end
-        
-        local Success, Errored = pcall(function()
-            CreateTracers()
-        end)
-        
-        if Success and not Errored then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Ash01 Developer";
-                    Text = "Tracer script has successfully loaded.";
-                    Duration = 5;
-                })
-            end
-        elseif Errored and not Success then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Exunys Developer";
-                    Text = "Tracer script has errored while loading, please check the developer console! (F9)";
-                    Duration = 5;
-                })
-            end
-            TestService:Message("The tracer script has errored, please notify Exunys with the following information :")
-            warn(Errored)
-            print("!! IF THE ERROR IS A FALSE POSITIVE (says that a player cannot be found) THEN DO NOT BOTHER !!")
-        end
+runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
+   for player, drawings in next, espCache do
+       if settings.teamcheck and player.Team == localPlayer.Team then
+           continue;
+       end
+       if drawings and player ~= localPlayer then
+           updateEsp(player, drawings);
+       end
+   end
 end)
-
-KillingCheats:CreateToggle("Esp name", function(name)
-  local function API_Check()
-
-            if Drawing == nil then
-
-                return "No"
-            else
-                return "Yes"
-            end
-        end
-        
-        local Find_Required = API_Check()
-        
-        if Find_Required == "No" then
-            game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "An error lol";
-                Text = "ESP script could not be loaded because your exploit is unsupported.";
-                Duration = math.huge;
-                Button1 = "OK"
-            })
-        
-            return
-        end
-        
-        local Players = game:GetService("Players")
-        local RunService = game:GetService("RunService")
-        local UserInputService = game:GetService("UserInputService")
-        local Camera = workspace.CurrentCamera
-        
-        local Typing = false
-        
-        _G.SendNotifications = false   -- If set to true then the script would notify you frequently on any changes applied and when loaded / errored. (If a game can detect this, it is recommended to set it to false)
-        _G.DefaultSettings = false   -- If set to true then the ESP script would run with default settings regardless of any changes you made.
-        
-        _G.TeamCheck = true   -- If set to true then the script would create ESP only for the enemy team members.
-        
-        _G.ESPVisible = name   -- If set to true then the ESP will be visible and vice versa.
-        _G.TextColor = Color3.fromRGB(255, 255, 255)  -- The color that the boxes would appear as.
-        _G.TextSize = 14   -- The size of the text.
-        _G.Center = true   -- If set to true then the script would be located at the center of the label.
-        _G.Outline = false   -- If set to true then the text would have an outline.
-        _G.OutlineColor = Color3.fromRGB(0, 0, 0)   -- The outline color of the text.
-        _G.TextTransparency = 0.7   -- The transparency of the text.
-        _G.TextFont = Drawing.Fonts.UI   -- The font of the text. (UI, System, Plex, Monospace) 
-        
-        _G.DisableKey = Enum.KeyCode.RightAlt   -- The key that disables / enables the ESP.
-        
-        local function CreateESP()
-            for _, v in next, Players:GetPlayers() do
-                if v.Name ~= Players.LocalPlayer.Name then
-                    local ESP = Drawing.new("Text")
-        
-                    RunService.RenderStepped:Connect(function()
-                        if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
-                            local Vector, OnScreen = Camera:WorldToViewportPoint(workspace[v.Name]:WaitForChild("Head", math.huge).Position)
-        
-                            ESP.Size = _G.TextSize
-                            ESP.Center = _G.Center
-                            ESP.Outline = _G.Outline
-                            ESP.OutlineColor = _G.OutlineColor
-                            ESP.Color = _G.TextColor
-                            ESP.Transparency = _G.TextTransparency
-                            ESP.Font = _G.TextFont
-        
-                            if OnScreen == true then
-                                local Part1 = workspace:WaitForChild(v.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position
-                                local Part2 = workspace:WaitForChild(Players.LocalPlayer.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position or 0
-                                local Dist = (Part1 - Part2).Magnitude
-                                ESP.Position = Vector2.new(Vector.X, Vector.Y - 25)
-                                ESP.Text = ("("..tostring(math.floor(tonumber(Dist)))..") "..v.Name.." ["..workspace[v.Name].Humanoid.Health.."]")
-                                if _G.TeamCheck == true then 
-                                    if Players.LocalPlayer.Team ~= v.Team then
-                                        ESP.Visible = _G.ESPVisible
-                                    else
-                                        ESP.Visible = false
-                                    end
-                                else
-                                    ESP.Visible = _G.ESPVisible
-                                end
-                            else
-                                ESP.Visible = false
-                            end
-                        else
-                            ESP.Visible = false
-                        end
-                    end)
-        
-                    Players.PlayerRemoving:Connect(function()
-                        ESP.Visible = false
-                    end)
-                end
-            end
-        
-            Players.PlayerAdded:Connect(function(Player)
-                Player.CharacterAdded:Connect(function(v)
-                    if v.Name ~= Players.LocalPlayer.Name then 
-                        local ESP = Drawing.new("Text")
-            
-                        RunService.RenderStepped:Connect(function()
-                            if workspace:FindFirstChild(v.Name) ~= nil and workspace[v.Name]:FindFirstChild("HumanoidRootPart") ~= nil then
-                                local Vector, OnScreen = Camera:WorldToViewportPoint(workspace[v.Name]:WaitForChild("Head", math.huge).Position)
-            
-                                ESP.Size = _G.TextSize
-                                ESP.Center = _G.Center
-                                ESP.Outline = _G.Outline
-                                ESP.OutlineColor = _G.OutlineColor
-                                ESP.Color = _G.TextColor
-                                ESP.Transparency = _G.TextTransparency
-            
-                                if OnScreen == true then
-                                    local Part1 = workspace:WaitForChild(v.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position
-                                local Part2 = workspace:WaitForChild(Players.LocalPlayer.Name, math.huge):WaitForChild("HumanoidRootPart", math.huge).Position or 0
-                                    local Dist = (Part1 - Part2).Magnitude
-                                    ESP.Position = Vector2.new(Vector.X, Vector.Y - 25)
-                                    ESP.Text = ("("..tostring(math.floor(tonumber(Dist)))..") "..v.Name.." ["..workspace[v.Name].Humanoid.Health.."]")
-                                    if _G.TeamCheck == true then 
-                                        if Players.LocalPlayer.Team ~= Player.Team then
-                                            ESP.Visible = _G.ESPVisible
-                                        else
-                                            ESP.Visible = false
-                                        end
-                                    else
-                                        ESP.Visible = _G.ESPVisible
-                                    end
-                                else
-                                    ESP.Visible = false
-                                end
-                            else
-                                ESP.Visible = false
-                            end
-                        end)
-            
-                        Players.PlayerRemoving:Connect(function()
-                            ESP.Visible = false
-                        end)
-                    end
-                end)
-            end)
-        end
-        
-        if _G.DefaultSettings == true then
-            _G.TeamCheck = false
-            _G.ESPVisible = true
-            _G.TextColor = Color3.fromRGB(40, 90, 255)
-            _G.TextSize = 14
-            _G.Center = true
-            _G.Outline = false
-            _G.OutlineColor = Color3.fromRGB(0, 0, 0)
-            _G.DisableKey = Enum.KeyCode.Q
-            _G.TextTransparency = 0.75
-        end
-        
-        UserInputService.TextBoxFocused:Connect(function()
-            Typing = true
-        end)
-        
-        UserInputService.TextBoxFocusReleased:Connect(function()
-            Typing = false
-        end)
-        
-        UserInputService.InputBegan:Connect(function(Input)
-            if Input.KeyCode == _G.DisableKey and Typing == false then
-                _G.ESPVisible = not _G.ESPVisible
-                
-                if _G.SendNotifications == true then
-                    game:GetService("StarterGui"):SetCore("SendNotification",{
-                        Title = "Exunys Developer";
-                        Text = "The ESP's visibility is now set to "..tostring(_G.ESPVisible)..".";
-                        Duration = 5;
-                    })
-                end
-            end
-        end)
-        
-        local Success, Errored = pcall(function()
-            CreateESP()
-        end)
-        
-        if Success and not Errored then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Epic gamer esp";
-                    Text = "Epic gamer esp has been successful loaded";
-                    Duration = 5;
-                })
-            end
-        elseif Errored and not Success then
-            if _G.SendNotifications == true then
-                game:GetService("StarterGui"):SetCore("SendNotification",{
-                    Title = "Ash01 Developer";
-                    Text = "ESP script has errored while loading, please check the developer console! (F9)";
-                    Duration = 5;
-                })
-            end
-            TestService:Message("The ESP script has errored, please notify Ash01 with the following information :")
-            warn(Errored)
-            print("!! IF THE ERROR IS A FALSE POSITIVE (says that a player cannot be found) THEN DO NOT BOTHER !!")
-        end
 end)
-
+KillingCheats:CreateButton("Fov circle", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Fov circle has been executed lol",
+Text = "Circle in front of your face lol", 
+Duration = 5
+})
+local dwCamera = workspace.CurrentCamera
+local dwRunService = game:GetService("RunService")
+local dwUIS = game:GetService("UserInputService")
+local dwEntities = game:GetService("Players")
+local dwLocalPlayer = dwEntities.LocalPlayer
+local dwMouse = dwLocalPlayer:GetMouse()
+local settings = {
+    Aimbot_Draw_FOV = true,
+    Aimbot_FOV_Radius = 150,
+    Aimbot_FOV_Color = Color3.fromRGB(255,255,255)
+}
+local fovcircle = Drawing.new("Circle")
+fovcircle.Visible = settings.Aimbot_Draw_FOV
+fovcircle.Radius = settings.Aimbot_FOV_Radius
+fovcircle.Color = settings.Aimbot_FOV_Color
+fovcircle.Thickness = 5
+fovcircle.Filled = false
+fovcircle.Transparency = 1
+fovcircle.Position = Vector2.new(dwCamera.ViewportSize.X / 2, dwCamera.ViewportSize.Y / 2)
+dwUIS.InputBegan:Connect(function(i)
+    if i.UserInputType == Enum.UserInputType.MouseButton2 then
+        settings.Aiming = false
+    end
+end)
+end)
+KillingCheats:CreateButton("Tracer", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Tracer has been executed lol",
+Text = "Wallhax", 
+Duration = 5
+})
+local lplr = game.Players.LocalPlayer
+local camera = game:GetService("Workspace").CurrentCamera
+local CurrentCamera = workspace.CurrentCamera
+local worldToViewportPoint = CurrentCamera.worldToViewportPoint
+_G.TeamCheck = true-- Use True or False to toggle TeamCheck
+for i,v in pairs(game.Players:GetChildren()) do
+    local Tracer = Drawing.new("Line")
+    Tracer.Visible = false
+    Tracer.Color = Color3.new(1,1,1)
+    Tracer.Thickness = 1
+    Tracer.Transparency = 1
+    function lineesp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                if OnScreen then
+                    Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+                    Tracer.To = Vector2.new(Vector.X, Vector.Y)
+                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                        --//Teammates
+                        Tracer.Visible = true
+                    else
+                        --//Enemies
+                        Tracer.Visible = true
+                    end
+                else
+                    Tracer.Visible = false
+                end
+            else
+                Tracer.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(lineesp)()
+end
+game.Players.PlayerAdded:Connect(function(v)
+    local Tracer = Drawing.new("Line")
+    Tracer.Visible = false
+    Tracer.Color = Color3.new(1,1,1)
+    Tracer.Thickness = 1
+    Tracer.Transparency = 1
+    function lineesp()
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v ~= lplr and v.Character.Humanoid.Health > 0 then
+                local Vector, OnScreen = camera:worldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                if OnScreen then
+                    Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
+                    Tracer.To = Vector2.new(Vector.X, Vector.Y)
+                    if _G.TeamCheck and v.TeamColor == lplr.TeamColor then
+                        --//Teammates
+                        Tracer.Visible = false
+                    else
+                        --//Enemies
+                        Tracer.Visible = true
+                    end
+                else
+                    Tracer.Visible = false
+                end
+            else
+                Tracer.Visible = false
+            end
+        end)
+    end
+    coroutine.wrap(lineesp)()
+end)
+end)
 local KillingCheats = PhantomForcesWindow:NewSection("Gun Mods")
-
 KillingCheats:CreateButton("Rapidfire", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Rapidfire has been executed",
 Text = "Gun wrrrrrrrr", 
-
 Duration = 5
 })
 local replicationstorage = game.ReplicatedStorage
-
 for i, v in pairs(replicationstorage.Weapons:GetDescendants()) do
    if v.Name == "Auto" then
        v.Value = true
@@ -989,56 +396,42 @@ for i, v in pairs(replicationstorage.Weapons:GetDescendants()) do
    end
 end
 end)
-
-
 KillingCheats:CreateButton("RGB gun", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "RGB gun has been executed lol",
 Text = "RBG = More fps (Joke)", 
-
-
 Duration = 5
 })
 local c = 1 function zigzag(X)  return math.acos(math.cos(X * math.pi)) / math.pi end game:GetService("RunService").RenderStepped:Connect(function()  if game.Workspace.Camera:FindFirstChild('Arms') then   for i,v in pairs(game.Workspace.Camera.Arms:GetDescendants()) do    if v.ClassName == 'MeshPart' then      v.Color = Color3.fromHSV(zigzag(c),1,1)     c = c + .0001    end   end  end end)
 end)
-
 KillingCheats:CreateButton("Infinite ammo", function()
     while wait() do
         game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount.Value = 999
         game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount2.Value = 999
     end
 end)
-
 local KillingCheats = PhantomForcesWindow:NewSection("Player")
-
 KillingCheats:CreateDropdown("Speed", {"15", "30", "50", "70", "100"}, 2, function(speed)
 while true do
 wait()
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 end
 end)
-
 KillingCheats:CreateButton("Infinite Jump", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Infinite jump has been executed lol",
 Text = "Fly fly lol", 
-
 Duration = 5
 })
 -- Created By Zorkel
-
 -- Instances:
-
 local DropGUI = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local DropTool = Instance.new("TextButton")
-
 --Properties:
-
 DropGUI.Name = "Drop GUI"
 DropGUI.Parent = game.CoreGui
 DropGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
 main.Name = "main"
 main.Parent = DropGUI
 main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1046,7 +439,6 @@ main.Position = UDim2.new(0.0809101239, 0, 0.203790441, 0)
 main.Size = UDim2.new(0, 100, 0, 100)
 main.Active = true
 main.Draggable = true
-
 DropTool.Name = "Drop Tool"
 DropTool.Parent = main
 DropTool.BackgroundColor3 = Color3.fromRGB(350, 0, 0)
@@ -1065,29 +457,22 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 	end
 end)
-
-
 game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 end)
 end)
-
 KillingCheats:CreateButton("Invisible", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Invisible executed lol",
 Text = "Pov: your dad", 
-
 Duration = 5
 })
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/Cesare0328/my-scripts/main/arsenal%20updated%20invis.lua'),true))()
 end)
-
 local KillingCheats = PhantomForcesWindow:NewSection("Misc")
-
 KillingCheats:CreateButton("Fps booster", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Low quality has been executed lol",
 Text = "Epic", 
-
 Duration = 5
 })
 local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
@@ -1128,32 +513,25 @@ for i, e in pairs(l:GetChildren()) do
     end
 end
 end)
-
 KillingCheats:CreateButton("Fullbright", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "your shadows are gone💀",
 Text = "executed Fullbright!", 
-
 Duration = 5
 })
 local Light = game:GetService("Lighting")
-
 function dofullbright()
 Light.Ambient = Color3.new(1, 1, 1)
 Light.ColorShift_Bottom = Color3.new(1, 1, 1)
 Light.ColorShift_Top = Color3.new(1, 1, 1)
 end
-
 dofullbright()
-
 Light.LightingChanged:Connect(dofullbright)
 end)
-
 KillingCheats:CreateButton("Copy discord invite", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Discord Copied to your clipboard",
 Text = "Epic", 
-
 Duration = 5
 })
 setclipboard("https://discord.gg/rQEHvHFGNf")
