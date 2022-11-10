@@ -33,18 +33,6 @@ end)
 UITextSizeConstraint.Parent = F6
 UITextSizeConstraint.MaxTextSize = 30
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-
-local Window = Library.CreateLib("TITLE", "DarkTheme")
-
-local Tab = Window:NewTab("TabName")
-
-local Section = Tab:NewSection("Section Name")
-
-Section:NewKeybind("Toggle ui", "Toogle the ui lol", Enum.KeyCode.F6, function()
-    Library:ToggleUI()
-end)
-
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua
 "))()
 
@@ -54,6 +42,6 @@ local Tab = Window:NewTab("TabName")
 
 local Section = Tab:NewSection("Section Name")
 
-Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F6, function()
-	Library:ToggleUI()
+Section:NewKeybind("Toggle ui", "Toogle the ui lol", Enum.KeyCode.F6, function()
+    Library:ToggleUI()
 end)
