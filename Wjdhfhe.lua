@@ -54,7 +54,6 @@ MT.__index = newcclosure(function(self, K)
 end)
 setreadonly(MT, true)
 end)
-
 KillingCheats:CreateToggle("Semi wallbang", function(wallbang)
 _G.Enable = wallbang
 local MT = getrawmetatable(game)
