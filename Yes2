@@ -1058,31 +1058,6 @@ for i, v in pairs(replicationstorage.Weapons:GetDescendants()) do
 end
 end)
 
-Section3:NewButton("Infinite ammo", "Infinity ammo yes", function()
-game:GetService("StarterGui"):SetCore("SendNotification",{
-Title = "Infinite ammo has been executed!",
-Text = "yes", 
-
-
-Duration = 5
-})
-while wait() do
-        game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount.Value = 999
-        game:GetService("Players").LocalPlayer.PlayerGui.GUI.Client.Variables.ammocount2.Value = 999
-    end
-end)
-
-Section3:NewButton("RGB gun", "Rainbow gun",
-game:GetService("StarterGui"):SetCore("SendNotification",{
-Title = "RGB gun has been executed lol",
-Text = "RBG = More fps (Joke)", 
-
-
-Duration = 5
-})
-local c = 1 function zigzag(X)  return math.acos(math.cos(X * math.pi)) / math.pi end game:GetService("RunService").RenderStepped:Connect(function()  if game.Workspace.Camera:FindFirstChild('Arms') then   for i,v in pairs(game.Workspace.Camera.Arms:GetDescendants()) do    if v.ClassName == 'MeshPart' then      v.Color = Color3.fromHSV(zigzag(c),1,1)     c = c + .0001    end   end  end end)
-end)
-
 Section4:NewTextBox("Walkspeed", "Walkspeed", function(speed)
 	while true do
 wait()
@@ -1143,7 +1118,7 @@ game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':C
 end)
 end)
 
-Section:NewButton("Fps booster", "Boost your fps!", function()
+Section5:NewButton("Fps booster", "Boost your fps!", function()
     KillingCheats:CreateButton("Fps booster", function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "Low quality has been executed lol",
@@ -1190,7 +1165,7 @@ for i, e in pairs(l:GetChildren()) do
 end
 end)
 
-Section:NewButton("Fullbright", "Disables your shadows", function()
+Section5:NewButton("Fullbright", "Disables your shadows", function()
     game:GetService("StarterGui"):SetCore("SendNotification",{
 Title = "your shadows are gone💀",
 Text = "executed Fullbright!", 
@@ -1210,5 +1185,5 @@ dofullbright()
 Light.LightingChanged:Connect(dofullbright)
 end)
 
-Section:NewButton("Copy discord invite link", "Copies the discord invite link to clipboard", function() setclipboard("https://discord.gg/rQEHvHFGNf")
+Section5:NewButton("Copy discord invite link", "Copies the discord invite link to clipboard", function() setclipboard("https://discord.gg/rQEHvHFGNf")
 end)
