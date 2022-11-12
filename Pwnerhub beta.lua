@@ -10,6 +10,10 @@ end
 
 if game.PlaceId == 3956818381 then
 	
-loadstring(game:HttpGet((""), true))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/ninja%20legends.lua"), true))()
 end
 
+if game.PlaceId == 10106105124 then
+	
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/wfs.lua"), true))()
+end
