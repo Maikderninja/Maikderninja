@@ -18,7 +18,7 @@ if game.PlaceId == 10106105124 then
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/wfs.lua"), true))()
 end
 
-if game.PlaceId == 9049840490 then
+if game.PlaceId == 537413528 then
 	
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/sonic%20speed%20simulator.lua"), true))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/boat.lua"), true))()
 end
