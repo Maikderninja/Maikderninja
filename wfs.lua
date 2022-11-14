@@ -275,6 +275,45 @@ end)
 UITextSizeConstraint.Parent = F6
 UITextSizeConstraint.MaxTextSize = 30
 
+P = game:GetService("Players").LocalPlayer
+P.CharacterAdded:Connect(function(char)
+    character = char
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local F6 = Instance.new("TextButton")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+F6.Name = "F6"
+F6.Parent = ScreenGui
+F6.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+F6.BackgroundTransparency = 0.500
+F6.Position = UDim2.new(0.806384563, 0, 0.0453872904, 0)
+F6.Size = UDim2.new(0.159186631, 0, 0.285657197, 0)
+F6.Font = Enum.Font.SourceSans
+F6.Text = "Pwnerhub"
+F6.TextColor3 = Color3.fromRGB(0, 0, 0)
+F6.TextScaled = true
+F6.TextSize = 30.000
+F6.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+F6.TextStrokeTransparency = 0.000
+F6.TextWrapped = true
+F6.MouseButton1Down:Connect(function()
+game:GetService("VirtualInputManager"):SendKeyEvent(true, "F6" ,false ,game)
+end)
+
+UITextSizeConstraint.Parent = F6
+UITextSizeConstraint.MaxTextSize = 30
+end)
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
 local Window = Library.CreateLib("WFS PWNERS", "Sentinel")
@@ -356,9 +395,30 @@ Section5:NewTextBox("Fov changer", "Fov changer yes", function(value)
 	game.Workspace.Camera.FieldOfView = value
 end)
 
-Section6:NewKeybind("Toggle ui", "Toogle the ui lol", Enum.KeyCode.F6, function()
-    Library:ToggleUI()
+Section2:NewDropdown("Teleport pet", "Teleport to the pet", {"Cat", "Fox", "Bear", "Mouse", "Shadow Dominus", "Bat", "Light Bat", "Bunny", "Shark", "Jellyfish", "Burger", "Ice Golem", "Starfish", "Water Dragon", "Cow", "Spikeball", "Lava Lord", "Reindeer", "Builder", "Snowman", "Mythical Reindeer", "Gumdrop", "Mage", "Baby Dragon", "Anglerfish", "Demonic Dominus", "Panda", "Scorpion", "Koala", "Demon Bat", "Hell Scorpion", "Angel", "Mythical Crab", "Cyborg", "Robot", "Skeleton Deer", "Pig", "Duck", "Crab", "Skeletor Bear", "Skeleton Dog", "Destroyer", "Reaper", "Sea Monster", "Bull", "Octopus Lord", "Pumpkin", "Storm Cloud", "Cloud", "Turkey", "Bee", "Monkey", "Donut", "Strawberry", "Golden Cat", "Dog", "Light Dragon", "Lava Beast", "Octohex", "Buttermyths", "Zombie Dragon", "Zap", "Angelfly", "Bot Overlord", "Ultimus} function(text)
+    getgenv().pet = text
 end)
+
+Section2:NewButton("Teleport to selected pet", "yes", function()
+    for _,v in pairs(game.Workspace:GetChildren()) do
+        if v.Name == getgenv().pet then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v:FindFirstChildOfClass("Part").Position)
+            break
+        end
+    end
+end)
+
+Section2:NewToggle("Auto tame selected pet", "yes", function(value)
+    getgenv().atame = value
+    if value then
+        atame()
+    end
+end)
+
+Section6:NewKeybind("Toggle the ui lol", "yeah", Enum.KeyCode.F6, function()
+	Library:ToggleUI()
+end)
+
 
 Section6:NewButton("Copy discord invite link", "Copies the discord invite link to clipboard (JOIN!!!!)", function()
     setclipboard("https://discord.gg/rQEHvHFGNf")
