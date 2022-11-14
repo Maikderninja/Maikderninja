@@ -116,3 +116,4 @@ TextLabel_3.TextWrapped = true
 
 UITextSizeConstraint_5.Parent = TextLabel_3
 UITextSizeConstraint_5.MaxTextSize = 86
+
