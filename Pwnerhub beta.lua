@@ -22,3 +22,8 @@ if game.PlaceId == 537413528 then
 	
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/boat.lua"), true))()
 end
+
+if game.PlaceId == 3101667897 then
+	
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Legends%20of%20speed.lua"), true))()
+end
