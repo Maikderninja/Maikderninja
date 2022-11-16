@@ -74,7 +74,7 @@ end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
-local Window = Library.CreateLib("Legends of speed Desert PWNERS", "Sentinel")
+local Window = Library.CreateLib("Legends of speed Desert PWNERS", "Ocean")
 
 local Tab1 = Window:NewTab("Auto farm stuff")
 local Tab3 = Window:NewTab("Open crystals")
