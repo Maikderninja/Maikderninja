@@ -74,7 +74,7 @@ end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
-local Window = Library.CreateLib("Arsenal PWNERS V2", "Sentinel")
+local Window = Library.CreateLib("Arsenal PWNERS V2", "Ocean")
 
 local Tab1 = Window:NewTab("Combat")
 local Tab2 = Window:NewTab("Visuals")
