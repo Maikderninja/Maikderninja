@@ -74,7 +74,7 @@ end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
-local Window = Library.CreateLib("Ninja legends PWNERS", "Sentinel")
+local Window = Library.CreateLib("Ninja legends PWNERS", "Ocean")
 
 local Tab1 = Window:NewTab("Main")
 local Tab2 = Window:NewTab("Misc")
