@@ -209,9 +209,6 @@ Load.MouseButton1Down:Connect(function()
 	Close2.TextScaled = true
 	Close2.TextSize = 40.000
 	Close2.TextWrapped = true
-	Close2.MouseButton1Down:Connect(function()
-		hax:Destroy()
-	end)
 
 	UITextSizeConstraint_2.Parent = Close2
 	UITextSizeConstraint_2.MaxTextSize = 40
@@ -240,11 +237,11 @@ Load.MouseButton1Down:Connect(function()
 	UITextSizeConstraint_3.Parent = silentlolll
 	UITextSizeConstraint_3.MaxTextSize = 14
 
-	TextButton.Parent = silentlolll
+	TextButton.Parent = lol
 	TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	TextButton.BorderSizePixel = 0
-	TextButton.Position = UDim2.new(0.0250000022, 0, 1.34000003, 0)
-	TextButton.Size = UDim2.new(1.00000012, 0, 2.96000004, 0)
+	TextButton.Position = UDim2.new(0.0663699359, 0, 3.80363011, 0)
+	TextButton.Size = UDim2.new(0.816133618, 0, 5.89289188, 0)
 	TextButton.Font = Enum.Font.SourceSans
 	TextButton.Text = ""
 	TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -252,7 +249,7 @@ Load.MouseButton1Down:Connect(function()
 
 	-- Scripts:
 
-	local function YVZE_fake_script() -- lol.LocalScript 
+	local function EWGPCTO_fake_script() -- lol.LocalScript 
 		local script = Instance.new('LocalScript', lol)
 
 		frame = script.Parent.Parent.lol
@@ -260,7 +257,122 @@ Load.MouseButton1Down:Connect(function()
 		frame.Active = true
 		frame.Selectable = true
 	end
-	coroutine.wrap(YVZE_fake_script)()
+	coroutine.wrap(EWGPCTO_fake_script)()
+	local function TBCLRLF_fake_script() -- TextButton.LocalScript 
+		local script = Instance.new('LocalScript', TextButton)
+
+		toggle = false
+		script.Parent.MouseButton1Down:connect(function()
+
+			if toggle == true then 
+				toggle = false 
+			else
+				toggle = true
+			end
+			if toggle == true then 
+				script.Parent.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+			end
+			if toggle == false then 
+				script.Parent.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+			end
+
+			if toggle == true then
+				local CurrentCamera = workspace.CurrentCamera
+				local Players = game.Players
+				local LocalPlayer = Players.LocalPlayer
+				local Mouse = LocalPlayer:GetMouse()
+				function ClosestPlayer()
+					local MaxDist, Closest = math.huge
+					for I,V in pairs(Players.GetPlayers(Players)) do
+						if V == LocalPlayer then continue end
+						if V.Team == LocalPlayer then continue end
+						if not V.Character then continue end
+						local Head = V.Character.FindFirstChild(V.Character, "Head")
+						if not Head then continue end
+						local Pos, Vis = CurrentCamera.WorldToScreenPoint(CurrentCamera, Head.Position)
+						if not Vis then continue end
+						local MousePos, TheirPos = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2), Vector2.new(Pos.X, Pos.Y)
+						local Dist = (TheirPos - MousePos).Magnitude
+						if Dist < MaxDist then
+							MaxDist = Dist
+							Closest = V
+						end
+					end
+					return Closest
+				end
+				local MT = getrawmetatable(game)
+				local OldNC = MT.__namecall
+				local OldIDX = MT.__index
+				setreadonly(MT, false)
+				MT.__namecall = newcclosure(function(self, ...)
+					local Args, Method = {...}, getnamecallmethod()
+					if Method == "FindPartOnRayWithIgnoreList" and not checkcaller() then
+						local CP = ClosestPlayer()
+						if CP and CP.Character and CP.Character.FindFirstChild(CP.Character, "Head") then
+							Args[1] = Ray.new(CurrentCamera.CFrame.Position, (CP.Character.Head.Position - CurrentCamera.CFrame.Position).Unit * 1000)
+							return OldNC(self, unpack(Args))
+						end
+					end
+					return OldNC(self, ...)
+				end)
+				MT.__index = newcclosure(function(self, K)
+					if K == "Clips" then
+						return workspace.Map
+					end
+					return OldIDX(self, K)
+				end)
+				setreadonly(MT, true)
+			end
+			if toggle == false then 
+				local CurrentCamera = workspace.CurrentCamera
+				local Players = game.Players
+				local LocalPlayer = Players.LocalPlayer
+				local Mouse = LocalPlayer:GetMouse()
+				function ClosestPlayer()
+					local MaxDist, Closest = math.huge
+					for I,V in pairs(Players.GetPlayers(Players)) do
+						if V == LocalPlayer then continue end
+						if V.Team == LocalPlayer then continue end
+						if not V.Character then continue end
+						local Head = V.Character.FindFirstChild(V.Character, "Head")
+						if not Head then continue end
+						local Pos, Vis = CurrentCamera.WorldToScreenPoint(CurrentCamera, Head.Position)
+						if not Vis then continue end
+						local MousePos, TheirPos = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 0, workspace.CurrentCamera.ViewportSize.Y / 0), Vector2.new(Pos.X, Pos.Y)
+						local Dist = (TheirPos - MousePos).Magnitude
+						if Dist < MaxDist then
+							MaxDist = Dist
+							Closest = V
+						end
+					end
+					return Closest
+				end
+				local MT = getrawmetatable(game)
+				local OldNC = MT.__namecall
+				local OldIDX = MT.__index
+				setreadonly(MT, false)
+				MT.__namecall = newcclosure(function(self, ...)
+					local Args, Method = {...}, getnamecallmethod()
+					if Method == "FindPartOnRayWithIgnoreList" and not checkcaller() then
+						local CP = ClosestPlayer()
+						if CP and CP.Character and CP.Character.FindFirstChild(CP.Character, "Head") then
+							Args[1] = Ray.new(CurrentCamera.CFrame.Position, (CP.Character.Head.Position - CurrentCamera.CFrame.Position).Unit * 1000)
+							return OldNC(self, unpack(Args))
+						end
+					end
+					return OldNC(self, ...)
+				end)
+				MT.__index = newcclosure(function(self, K)
+					if K == "Clips" then
+						return workspace.Map
+					end
+					return OldIDX(self, K)
+				end)
+				setreadonly(MT, true)
+			end
+		end)
+	end
+	coroutine.wrap(TBCLRLF_fake_script)()
 end)
 
 UITextSizeConstraint_5.Parent = Load
