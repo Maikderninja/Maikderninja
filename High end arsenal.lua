@@ -67,6 +67,7 @@ TextButton.TextSize = 30.000
 TextButton.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, "F6" ,false ,game)
 end)
+end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
