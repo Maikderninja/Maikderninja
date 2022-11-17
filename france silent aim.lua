@@ -317,7 +317,6 @@ Load.MouseButton1Down:Connect(function()
 		end)
 	end
 	coroutine.wrap(NQESIWD_fake_script)()
-	Loader:Detroy()
 end)
 
 UITextSizeConstraint_5.Parent = Load
