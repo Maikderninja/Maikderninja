@@ -209,6 +209,9 @@ Load.MouseButton1Down:Connect(function()
 	Close2.TextScaled = true
 	Close2.TextSize = 40.000
 	Close2.TextWrapped = true
+	Close2.MouseButton1Down:Connect(function()
+		hax:Destroy()
+	end)
 
 	UITextSizeConstraint_2.Parent = Close2
 	UITextSizeConstraint_2.MaxTextSize = 40
@@ -389,4 +392,3 @@ local function VJHE_fake_script() -- Frame.LocalScript
 	frame.Selectable = true
 end
 coroutine.wrap(VJHE_fake_script)()
-print("france>>>>")
