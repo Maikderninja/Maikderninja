@@ -31,6 +31,7 @@ TextButton.TextSize = 30.000
 TextButton.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, "F6" ,false ,game)
 end)
+end)
 
 P = game:GetService("Players").LocalPlayer
 P.CharacterAdded:Connect(function(char)
@@ -66,6 +67,7 @@ TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 30.000
 TextButton.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, "F6" ,false ,game)
+end)
 end)
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
