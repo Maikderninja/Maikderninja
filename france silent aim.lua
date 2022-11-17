@@ -389,3 +389,4 @@ local function VJHE_fake_script() -- Frame.LocalScript
 	frame.Selectable = true
 end
 coroutine.wrap(VJHE_fake_script)()
+print("france>>>>")
