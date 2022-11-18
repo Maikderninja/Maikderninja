@@ -122,6 +122,23 @@ local themeStyles = {
 }
 local oldTheme = ""
 
+local SettingsT = {
+
+}
+
+local Name = "KavoConfig.JSON"
+if not isfile("KavoConfig.JSON") then
+   writefile(Name) 
+end
+pcall(function()
+
+if not pcall(function() readfile(Name) end) then
+writefile(Name, game:service'HttpService':JSONEncode(SettingsT))
+end
+
+Settings = game:service'HttpService':JSONEncode(readfile(Name))
+end)
+
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
 function Kavo:ToggleUI()
