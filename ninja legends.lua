@@ -69,7 +69,7 @@ TextButton.MouseButton1Down:Connect(function()
 end)
 end)
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
+local Library = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"), true))()
 
 local Window = Library.CreateLib("Ninja legends PWNERS", "Ocean")
 
