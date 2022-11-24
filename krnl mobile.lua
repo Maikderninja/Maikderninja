@@ -1,4 +1,3 @@
-
 -- Gui to Lua
 -- Version: 3.2
 
@@ -39,16 +38,15 @@ local Frame_3 = Instance.new("Frame")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.DisplayOrder = 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-
+ScreenGui.DisplayOrder = 999999999
 
 drag.Name = "drag"
 drag.Parent = ScreenGui
 drag.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
 drag.BorderColor3 = Color3.fromRGB(27, 42, 53)
 drag.BorderSizePixel = 0
-drag.Position = UDim2.new(0.204787195, 0, 0.175093323, 0)
-drag.Size = UDim2.new(0.590425551, 0, 0.583730817, 0)
+drag.Position = UDim2.new(0.20478718, 0, 0.175093308, 0)
+drag.ZIndex = 999999999
 
 Frame.Parent = drag
 Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
@@ -134,9 +132,6 @@ close.TextColor3 = Color3.fromRGB(255, 255, 255)
 close.TextScaled = true
 close.TextSize = 14.000
 close.TextWrapped = true
-close.MouseButton1Down:connect(function()
-ScreenGui:Destroy()
-end)
 
 UITextSizeConstraint_5.Parent = close
 UITextSizeConstraint_5.MaxTextSize = 27
@@ -225,7 +220,7 @@ TextLabel.Parent = Frame_2
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0.0203683376, 0, -0.0400276184, 0)
-TextLabel.Size = UDim2.new(0, 84, 0, 26)
+TextLabel.Size = UDim2.new(0.748719931, 0, 1.35630858, 0)
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.Text = "Script1.lua"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -240,7 +235,7 @@ TextLabel_2.Parent = Frame_2
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.BackgroundTransparency = 1.000
 TextLabel_2.Position = UDim2.new(0.948027492, 0, -0.00667130947, 0)
-TextLabel_2.Size = UDim2.new(0, 36, 0, 23)
+TextLabel_2.Size = UDim2.new(0.320879966, 0, 1.19981134, 0)
 TextLabel_2.Font = Enum.Font.SourceSans
 TextLabel_2.Text = "+"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -257,16 +252,13 @@ close2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 close2.BackgroundTransparency = 1.000
 close2.BorderSizePixel = 0
 close2.Position = UDim2.new(0.769088268, 0, 0, 0)
-close2.Size = UDim2.new(0, 25, 0, 19)
+close2.Size = UDim2.new(0.22283332, 0, 0.991148531, 0)
 close2.Font = Enum.Font.SourceSans
 close2.Text = "x"
 close2.TextColor3 = Color3.fromRGB(255, 255, 255)
 close2.TextScaled = true
 close2.TextSize = 25.000
 close2.TextWrapped = true
-close2.MouseButton1Down:connect(function()
-ScreenGui:Destroy()
-end)
 
 UITextSizeConstraint_12.Parent = close2
 UITextSizeConstraint_12.MaxTextSize = 25
@@ -279,15 +271,15 @@ Frame_3.Size = UDim2.new(1, 0, 0.0157407522, 0)
 
 -- Scripts:
 
-local function JGCBKG_fake_script() -- clear.LocalScript 
+local function ODJCV_fake_script() -- clear.LocalScript 
 	local script = Instance.new('LocalScript', clear)
 
 	script.Parent.MouseButton1Down:Connect(function()
 		script.Parent.Parent.TextBox.Text = " "
 	end)
 end
-coroutine.wrap(JGCBKG_fake_script)()
-local function XNUPNGW_fake_script() -- execute.LocalScript 
+coroutine.wrap(ODJCV_fake_script)()
+local function HWHZ_fake_script() -- execute.LocalScript 
 	local script = Instance.new('LocalScript', execute)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -296,8 +288,8 @@ local function XNUPNGW_fake_script() -- execute.LocalScript
 		end
 	end)
 end
-coroutine.wrap(XNUPNGW_fake_script)()
-local function UQTQLJ_fake_script() -- drag.LocalScript 
+coroutine.wrap(HWHZ_fake_script)()
+local function WMTZQAB_fake_script() -- drag.LocalScript 
 	local script = Instance.new('LocalScript', drag)
 
 	local frame = script.Parent
@@ -309,8 +301,8 @@ local function UQTQLJ_fake_script() -- drag.LocalScript
 	
 	--{0, 36},{0, 26}
 end
-coroutine.wrap(UQTQLJ_fake_script)()
-local function ROVKRG_fake_script() -- close.LocalScript 
+coroutine.wrap(WMTZQAB_fake_script)()
+local function FYLWMT_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	local frame = script.Parent
@@ -323,8 +315,8 @@ local function ROVKRG_fake_script() -- close.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(ROVKRG_fake_script)()
-local function JMXROQC_fake_script() -- attach.LocalScript 
+coroutine.wrap(FYLWMT_fake_script)()
+local function UVGFROR_fake_script() -- attach.LocalScript 
 	local script = Instance.new('LocalScript', attach)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -337,8 +329,8 @@ local function JMXROQC_fake_script() -- attach.LocalScript
 		script.Parent.Parent.logs.logs1.Text = " "
 	end)
 end
-coroutine.wrap(JMXROQC_fake_script)()
-local function XPOVJDW_fake_script() -- close2.LocalScript 
+coroutine.wrap(UVGFROR_fake_script)()
+local function ZSZZIS_fake_script() -- close2.LocalScript 
 	local script = Instance.new('LocalScript', close2)
 
 	local frame = script.Parent
@@ -351,4 +343,22 @@ local function XPOVJDW_fake_script() -- close2.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(XPOVJDW_fake_script)()
+coroutine.wrap(ZSZZIS_fake_script)()
+local function TGQDKS_fake_script() -- drag.LocalScript 
+	local script = Instance.new('LocalScript', drag)
+
+	local mainframe = script.Parent
+	
+	
+	
+	local Player = game.Players.LocalPlayer
+	
+	Player.Chatted:connect(function(cht)
+		if cht:match(".krnl on") then
+			mainframe:TweenSize(UDim2.new(0.59, 0, 0.584, 0), "In", 1, 0.5, false)
+		elseif cht:match(".krnl off") then -- add what you want to say for the script to execute so i put "admin" because i want it to load an admin script
+			mainframe:TweenSize(UDim2.new(0, 0, 0, 0), "In", 1, 0.5, false)
+		end
+	end)
+end
+coroutine.wrap(TGQDKS_fake_script)()
