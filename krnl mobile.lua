@@ -39,7 +39,7 @@ local Frame_3 = Instance.new("Frame")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.DisplayOrder = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ScreenGui.DisplayOrder = 9999
 
 drag.Name = "drag"
 drag.Parent = ScreenGui
@@ -48,7 +48,6 @@ drag.BorderColor3 = Color3.fromRGB(27, 42, 53)
 drag.BorderSizePixel = 0
 drag.Position = UDim2.new(0.204787195, 0, 0.175093323, 0)
 drag.Size = UDim2.new(0.590425551, 0, 0.583730817, 0)
-drag.ZIndex = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
 
 Frame.Parent = drag
 Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
