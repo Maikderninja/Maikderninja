@@ -33,6 +33,9 @@ local UITextSizeConstraint_11 = Instance.new("UITextSizeConstraint")
 local close2 = Instance.new("TextButton")
 local UITextSizeConstraint_12 = Instance.new("UITextSizeConstraint")
 local Frame_3 = Instance.new("Frame")
+local Frame_4 = Instance.new("Frame")
+local Frame_5 = Instance.new("Frame")
+local krnlLogo = Instance.new("ImageLabel")
 
 --Properties:
 
@@ -42,14 +45,15 @@ ScreenGui.DisplayOrder = 999999999
 
 drag.Name = "drag"
 drag.Parent = ScreenGui
-drag.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+drag.BackgroundColor3 = Color3.fromRGB(33, 32, 30)
 drag.BorderColor3 = Color3.fromRGB(27, 42, 53)
 drag.BorderSizePixel = 0
-drag.Position = UDim2.new(0.20478718, 0, 0.175093308, 0)
-drag.ZIndex = 999999999
+drag.Position = UDim2.new(0.167228505, 0, 0.262049854, 0)
+drag.Size = UDim2.new(0.590425551, 0, 0.583730817, 0)
+drag.ZIndex = 0
 
 Frame.Parent = drag
-Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Frame.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.0165165402, 0, 0.133605003, 0)
 Frame.Size = UDim2.new(0.765765905, 0, 0.720764756, 0)
@@ -58,8 +62,8 @@ nameLabel.Name = "nameLabel"
 nameLabel.Parent = drag
 nameLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 nameLabel.BackgroundTransparency = 1.000
-nameLabel.Position = UDim2.new(0.350864947, 0, -0.0204863343, 0)
-nameLabel.Size = UDim2.new(0.334834844, 0, 0.166505218, 0)
+nameLabel.Position = UDim2.new(0.350864977, 0, -0.109005883, 0)
+nameLabel.Size = UDim2.new(0.334834844, 0, 0.130885735, 0)
 nameLabel.Font = Enum.Font.SourceSans
 nameLabel.Text = "KRNL mobile (Beta)"
 nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -88,7 +92,7 @@ UITextSizeConstraint_2.Parent = TextBox
 
 clear.Name = "clear"
 clear.Parent = drag
-clear.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+clear.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 clear.BorderSizePixel = 0
 clear.Position = UDim2.new(0.189189196, 0, 0.878892958, 0)
 clear.Size = UDim2.new(0.151651651, 0, 0.104758278, 0)
@@ -104,7 +108,7 @@ UITextSizeConstraint_3.MaxTextSize = 39
 
 execute.Name = "execute"
 execute.Parent = drag
-execute.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+execute.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 execute.BorderSizePixel = 0
 execute.Position = UDim2.new(0.0180180185, 0, 0.878892958, 0)
 execute.Size = UDim2.new(0.160660654, 0, 0.104758278, 0)
@@ -123,8 +127,8 @@ close.Parent = drag
 close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 close.BackgroundTransparency = 1.000
 close.BorderSizePixel = 0
-close.Position = UDim2.new(0.954954982, 0, 0.014322035, 0)
-close.Size = UDim2.new(0.0450449511, 0, 0.0903227478, 0)
+close.Position = UDim2.new(0.942942858, 0, -0.101189703, 0)
+close.Size = UDim2.new(0.0589602888, 0, 0.0986656994, 0)
 close.AutoButtonColor = false
 close.Font = Enum.Font.SourceSans
 close.Text = "x"
@@ -132,6 +136,9 @@ close.TextColor3 = Color3.fromRGB(255, 255, 255)
 close.TextScaled = true
 close.TextSize = 14.000
 close.TextWrapped = true
+close.MouseButton1Down:Connect(function()
+	ScreenGui:Destroy()
+end)
 
 UITextSizeConstraint_5.Parent = close
 UITextSizeConstraint_5.MaxTextSize = 27
@@ -140,9 +147,10 @@ attachLabel.Name = "attachLabel"
 attachLabel.Parent = drag
 attachLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 attachLabel.BackgroundTransparency = 1.000
-attachLabel.Position = UDim2.new(0.69969964, 0, 0.0143220667, 0)
-attachLabel.Size = UDim2.new(0.231675342, 0, 0.115150511, 0)
+attachLabel.Position = UDim2.new(0.699699879, 0, -0.109816954, 0)
+attachLabel.Size = UDim2.new(0.231675342, 0, 0.13169679, 0)
 attachLabel.Visible = false
+attachLabel.ZIndex = 9999
 attachLabel.Font = Enum.Font.SourceSans
 attachLabel.Text = "Injected!"
 attachLabel.TextColor3 = Color3.fromRGB(38, 255, 0)
@@ -155,7 +163,7 @@ UITextSizeConstraint_6.MaxTextSize = 39
 
 attach.Name = "attach"
 attach.Parent = drag
-attach.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
+attach.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 attach.BorderSizePixel = 0
 attach.Position = UDim2.new(0.352852762, 0, 0.878892958, 0)
 attach.Size = UDim2.new(0.172672838, 0, 0.104758278, 0)
@@ -171,7 +179,7 @@ UITextSizeConstraint_7.MaxTextSize = 39
 
 logs.Name = "logs"
 logs.Parent = drag
-logs.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+logs.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 logs.BorderSizePixel = 0
 logs.Position = UDim2.new(0.794294178, 0, 0.133605003, 0)
 logs.Size = UDim2.new(0.187687799, 0, 0.720764756, 0)
@@ -210,17 +218,19 @@ UITextSizeConstraint_9.Parent = logs1
 UITextSizeConstraint_9.MaxTextSize = 18
 
 Frame_2.Parent = drag
-Frame_2.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+Frame_2.BackgroundColor3 = Color3.fromRGB(41, 41, 40)
 Frame_2.BorderColor3 = Color3.fromRGB(31, 31, 31)
 Frame_2.BorderSizePixel = 0
-Frame_2.Position = UDim2.new(0.016516529, 0, 0.0542815216, 0)
-Frame_2.Size = UDim2.new(0.223025814, 0, 0.0793235078, 0)
+Frame_2.Position = UDim2.new(0.016516529, 0, 0.0542815179, 0)
+Frame_2.Size = UDim2.new(0.223025814, 0, 0.0946440771, 0)
+Frame_2.ZIndex = 2
 
 TextLabel.Parent = Frame_2
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.0203683376, 0, -0.0400276184, 0)
+TextLabel.Position = UDim2.new(0.0203683376, 0, -0.21491304, 0)
 TextLabel.Size = UDim2.new(0.748719931, 0, 1.35630858, 0)
+TextLabel.ZIndex = 9999
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.Text = "Script1.lua"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -234,8 +244,9 @@ UITextSizeConstraint_10.MaxTextSize = 20
 TextLabel_2.Parent = Frame_2
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.948027492, 0, -0.00667130947, 0)
+TextLabel_2.Position = UDim2.new(0.948027492, 0, -0.137835383, 0)
 TextLabel_2.Size = UDim2.new(0.320879966, 0, 1.19981134, 0)
+TextLabel_2.ZIndex = 9999
 TextLabel_2.Font = Enum.Font.SourceSans
 TextLabel_2.Text = "+"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -252,13 +263,17 @@ close2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 close2.BackgroundTransparency = 1.000
 close2.BorderSizePixel = 0
 close2.Position = UDim2.new(0.769088268, 0, 0, 0)
-close2.Size = UDim2.new(0.22283332, 0, 0.991148531, 0)
+close2.Size = UDim2.new(0.22283332, 0, 1, 0)
+close2.ZIndex = 9999
 close2.Font = Enum.Font.SourceSans
 close2.Text = "x"
 close2.TextColor3 = Color3.fromRGB(255, 255, 255)
 close2.TextScaled = true
 close2.TextSize = 25.000
 close2.TextWrapped = true
+close2.MouseButton1Down:Connect(function()
+	ScreenGui:Destroy()
+end)
 
 UITextSizeConstraint_12.Parent = close2
 UITextSizeConstraint_12.MaxTextSize = 25
@@ -266,20 +281,41 @@ UITextSizeConstraint_12.MaxTextSize = 25
 Frame_3.Parent = drag
 Frame_3.BackgroundColor3 = Color3.fromRGB(31, 70, 143)
 Frame_3.BorderSizePixel = 0
-Frame_3.Position = UDim2.new(0, 0, -0.00141873024, 0)
+Frame_3.Position = UDim2.new(0, 0, -0.125557736, 0)
 Frame_3.Size = UDim2.new(1, 0, 0.0157407522, 0)
+
+Frame_4.Parent = drag
+Frame_4.BackgroundColor3 = Color3.fromRGB(44, 44, 48)
+Frame_4.BorderSizePixel = 0
+Frame_4.Position = UDim2.new(0.0165164694, 0, 0.0537523441, 0)
+Frame_4.Size = UDim2.new(0.964133084, 0, 0.0951732472, 0)
+
+Frame_5.Parent = drag
+Frame_5.BackgroundColor3 = Color3.fromRGB(44, 44, 48)
+Frame_5.BorderSizePixel = 0
+Frame_5.Position = UDim2.new(3.03329983e-08, 0, -0.109005883, 0)
+Frame_5.Size = UDim2.new(1.0019033, 0, 0.124139018, 0)
+Frame_5.ZIndex = 0
+
+krnlLogo.Name = "krnlLogo"
+krnlLogo.Parent = Frame_5
+krnlLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+krnlLogo.BackgroundTransparency = 1.000
+krnlLogo.Position = UDim2.new(0.0178571437, 0, 0.0629630983, 0)
+krnlLogo.Size = UDim2.new(0, 29, 0, 25)
+krnlLogo.Image = "http://www.roblox.com/asset/?id=11655075858"
 
 -- Scripts:
 
-local function ODJCV_fake_script() -- clear.LocalScript 
+local function MXUPCEB_fake_script() -- clear.LocalScript 
 	local script = Instance.new('LocalScript', clear)
 
 	script.Parent.MouseButton1Down:Connect(function()
 		script.Parent.Parent.TextBox.Text = " "
 	end)
 end
-coroutine.wrap(ODJCV_fake_script)()
-local function HWHZ_fake_script() -- execute.LocalScript 
+coroutine.wrap(MXUPCEB_fake_script)()
+local function UULT_fake_script() -- execute.LocalScript 
 	local script = Instance.new('LocalScript', execute)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -288,8 +324,8 @@ local function HWHZ_fake_script() -- execute.LocalScript
 		end
 	end)
 end
-coroutine.wrap(HWHZ_fake_script)()
-local function WMTZQAB_fake_script() -- drag.LocalScript 
+coroutine.wrap(UULT_fake_script)()
+local function DTHDC_fake_script() -- drag.LocalScript 
 	local script = Instance.new('LocalScript', drag)
 
 	local frame = script.Parent
@@ -301,8 +337,8 @@ local function WMTZQAB_fake_script() -- drag.LocalScript
 	
 	--{0, 36},{0, 26}
 end
-coroutine.wrap(WMTZQAB_fake_script)()
-local function FYLWMT_fake_script() -- close.LocalScript 
+coroutine.wrap(DTHDC_fake_script)()
+local function SZAZ_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	local frame = script.Parent
@@ -315,8 +351,8 @@ local function FYLWMT_fake_script() -- close.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(FYLWMT_fake_script)()
-local function UVGFROR_fake_script() -- attach.LocalScript 
+coroutine.wrap(SZAZ_fake_script)()
+local function FEYQIAN_fake_script() -- attach.LocalScript 
 	local script = Instance.new('LocalScript', attach)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -329,8 +365,8 @@ local function UVGFROR_fake_script() -- attach.LocalScript
 		script.Parent.Parent.logs.logs1.Text = " "
 	end)
 end
-coroutine.wrap(UVGFROR_fake_script)()
-local function ZSZZIS_fake_script() -- close2.LocalScript 
+coroutine.wrap(FEYQIAN_fake_script)()
+local function ECMP_fake_script() -- close2.LocalScript 
 	local script = Instance.new('LocalScript', close2)
 
 	local frame = script.Parent
@@ -343,8 +379,8 @@ local function ZSZZIS_fake_script() -- close2.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(ZSZZIS_fake_script)()
-local function TGQDKS_fake_script() -- drag.LocalScript 
+coroutine.wrap(ECMP_fake_script)()
+local function LHVI_fake_script() -- drag.LocalScript 
 	local script = Instance.new('LocalScript', drag)
 
 	local mainframe = script.Parent
@@ -361,4 +397,13 @@ local function TGQDKS_fake_script() -- drag.LocalScript
 		end
 	end)
 end
-coroutine.wrap(TGQDKS_fake_script)()
+coroutine.wrap(LHVI_fake_script)()
+local function CQTZN_fake_script() -- Frame_5.LocalScript 
+	local script = Instance.new('LocalScript', Frame_5)
+
+	local frame = script.Parent
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+end
+coroutine.wrap(CQTZN_fake_script)()
