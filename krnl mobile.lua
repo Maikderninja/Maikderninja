@@ -48,7 +48,7 @@ drag.Parent = ScreenGui
 drag.BackgroundColor3 = Color3.fromRGB(33, 32, 30)
 drag.BorderColor3 = Color3.fromRGB(27, 42, 53)
 drag.BorderSizePixel = 0
-drag.Position = UDim2.new(0.167228505, 0, 0.262049884, 0)
+drag.Position = UDim2.new(0.167228505, 0, 0.262049854, 0)
 drag.ZIndex = 999999999
 
 Frame.Parent = drag
@@ -280,8 +280,8 @@ UITextSizeConstraint_12.MaxTextSize = 25
 Frame_3.Parent = drag
 Frame_3.BackgroundColor3 = Color3.fromRGB(31, 70, 143)
 Frame_3.BorderSizePixel = 0
-Frame_3.Position = UDim2.new(0, 0, -0.125557736, 0)
-Frame_3.Size = UDim2.new(1, 0, 0.0157407522, 0)
+Frame_3.Position = UDim2.new(-4.58221905e-08, 0, -0.117687352, 0)
+Frame_3.Size = UDim2.new(1.00000012, 0, 0.0157407541, 0)
 
 Frame_4.Parent = drag
 Frame_4.BackgroundColor3 = Color3.fromRGB(44, 44, 48)
@@ -292,29 +292,30 @@ Frame_4.Size = UDim2.new(0.964133084, 0, 0.0951732472, 0)
 Frame_5.Parent = drag
 Frame_5.BackgroundColor3 = Color3.fromRGB(44, 44, 48)
 Frame_5.BorderSizePixel = 0
-Frame_5.Position = UDim2.new(3.03329983e-08, 0, -0.109005883, 0)
-Frame_5.Size = UDim2.new(1.0019033, 0, 0.124139018, 0)
+Frame_5.Position = UDim2.new(0, 0, -0.109005876, 0)
+Frame_5.Size = UDim2.new(1, 0, 0.124139018, 0)
 Frame_5.ZIndex = 0
 
 krnlLogo.Name = "krnlLogo"
 krnlLogo.Parent = Frame_5
 krnlLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 krnlLogo.BackgroundTransparency = 1.000
-krnlLogo.Position = UDim2.new(0.0178571437, 0, 0.0629630983, 0)
-krnlLogo.Size = UDim2.new(0.0575396828, 0, 0.833333313, 0)
+krnlLogo.Position = UDim2.new(0.014896444, 0, 0.0897623748, 0)
+krnlLogo.Size = UDim2.new(0.0616250038, 0, 0.933333337, 0)
+krnlLogo.ZIndex = 0
 krnlLogo.Image = "http://www.roblox.com/asset/?id=11655075858"
 
 -- Scripts:
 
-local function KITAECE_fake_script() -- clear.LocalScript 
+local function WHHMA_fake_script() -- clear.LocalScript 
 	local script = Instance.new('LocalScript', clear)
 
 	script.Parent.MouseButton1Down:Connect(function()
 		script.Parent.Parent.TextBox.Text = " "
 	end)
 end
-coroutine.wrap(KITAECE_fake_script)()
-local function QNIDVB_fake_script() -- execute.LocalScript 
+coroutine.wrap(WHHMA_fake_script)()
+local function SDZW_fake_script() -- execute.LocalScript 
 	local script = Instance.new('LocalScript', execute)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -323,8 +324,8 @@ local function QNIDVB_fake_script() -- execute.LocalScript
 		end
 	end)
 end
-coroutine.wrap(QNIDVB_fake_script)()
-local function LWAAIM_fake_script() -- drag.LocalScript 
+coroutine.wrap(SDZW_fake_script)()
+local function QZBCP_fake_script() -- drag.LocalScript 
 	local script = Instance.new('LocalScript', drag)
 
 	local frame = script.Parent
@@ -336,8 +337,8 @@ local function LWAAIM_fake_script() -- drag.LocalScript
 	
 	--{0, 36},{0, 26}
 end
-coroutine.wrap(LWAAIM_fake_script)()
-local function QEKNPB_fake_script() -- close.LocalScript 
+coroutine.wrap(QZBCP_fake_script)()
+local function GJJJTND_fake_script() -- close.LocalScript 
 	local script = Instance.new('LocalScript', close)
 
 	local frame = script.Parent
@@ -350,8 +351,8 @@ local function QEKNPB_fake_script() -- close.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(QEKNPB_fake_script)()
-local function HMBKC_fake_script() -- attach.LocalScript 
+coroutine.wrap(GJJJTND_fake_script)()
+local function XHJIN_fake_script() -- attach.LocalScript 
 	local script = Instance.new('LocalScript', attach)
 
 	script.Parent.MouseButton1Down:Connect(function()
@@ -364,8 +365,8 @@ local function HMBKC_fake_script() -- attach.LocalScript
 		script.Parent.Parent.logs.logs1.Text = " "
 	end)
 end
-coroutine.wrap(HMBKC_fake_script)()
-local function IUEGEI_fake_script() -- close2.LocalScript 
+coroutine.wrap(XHJIN_fake_script)()
+local function XVFO_fake_script() -- close2.LocalScript 
 	local script = Instance.new('LocalScript', close2)
 
 	local frame = script.Parent
@@ -378,8 +379,8 @@ local function IUEGEI_fake_script() -- close2.LocalScript
 		frame.BackgroundTransparency = 1
 	end)
 end
-coroutine.wrap(IUEGEI_fake_script)()
-local function IHRDPEF_fake_script() -- drag.LocalScript 
+coroutine.wrap(XVFO_fake_script)()
+local function VCZFOW_fake_script() -- drag.LocalScript 
 	local script = Instance.new('LocalScript', drag)
 
 	local mainframe = script.Parent
@@ -396,4 +397,4 @@ local function IHRDPEF_fake_script() -- drag.LocalScript
 		end
 	end)
 end
-coroutine.wrap(IHRDPEF_fake_script)()
+coroutine.wrap(VCZFOW_fake_script)()
