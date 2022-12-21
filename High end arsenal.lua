@@ -1,3 +1,5 @@
+local AntiAim_Toggle = false
+
 -- Gui to Lua
 -- Version: 3.2
 
@@ -69,7 +71,7 @@ TextButton.MouseButton1Down:Connect(function()
 end)
 end)
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/ui%20lib%20fix.lua"))();
 
 local Window = Library.CreateLib("Arsenal PWNERS V2", "Ocean")
 
@@ -316,6 +318,16 @@ Section2:NewButton("Chams", "Chams yes", function()
         end
 end)
 
+Section2:NewToggle("Third person", "third person yes", function(value)
+  if value then
+  game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = true
+game:GetService('Players').LocalPlayer.DevEnableMouseLock = true
+else
+game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = false
+game:GetService('Players').LocalPlayer.DevEnableMouseLock = false
+end
+end)
+
 Section2:NewLabel("Esp shit is broken rn idk  why")
 
 Section3:NewButton("Rapid fire", "Executes rapid fire", function()
@@ -359,6 +371,30 @@ Section4:NewTextBox("Walkspeed", "Changes the player's walkspeed", function(spee
         wait()
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
         end
+end)
+
+local J = false;
+Section4:NewToggle("Bunnyhop", "Haha cs source vibes", function(K)
+  J = K;
+  spawn(function()
+  while wait()
+  and J do game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Jump = true
+   end
+    end)
+  end)
+
+Section4:NewToggle("Anti aim", "haha hvh vibes", function(value)
+    if value then
+        game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = true
+
+  game.Players.LocalPlayer.Character:WaitForChild("Humanoid").AutoRotate = false
+               local spin = Instance.new('BodyAngularVelocity', game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart'))
+               spin.AngularVelocity = Vector3.new(0, math.random(-60000, 55000), 0)
+               spin.MaxTorque = Vector3.new(0, 50000, 0)
+               
+    else
+        game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = false
+    end
 end)
 
 Section4:NewButton("Infinite jump", "Fly fly haha", function()
