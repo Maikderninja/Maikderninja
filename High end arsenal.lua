@@ -387,11 +387,9 @@ Section4:NewToggle("Anti aim", "haha hvh vibes", function(value)
     if value then
         game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = true
 
-  game.Players.LocalPlayer.Character:WaitForChild("Humanoid").AutoRotate = false
-               local spin = Instance.new('BodyAngularVelocity', game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart'))
-               spin.AngularVelocity = Vector3.new(0, math.random(-60000, 55000), 0)
-               spin.MaxTorque = Vector3.new(0, 50000, 0)
-               
+local spin = Instance.new('BodyAngularVelocity', game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart'))
+spin.AngularVelocity = Vector3.new(0, math.random(-60000, 55000), 0)
+spin.MaxTorque = Vector3.new(0, 35000, 0)
     else
         game:GetService("Players")["LocalPlayer"].PlayerGui.GUI.Client.Variables.thirdperson.Value = false
     end
