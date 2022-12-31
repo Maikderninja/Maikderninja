@@ -355,25 +355,6 @@ Section5:NewTextBox("Fov changer", "Fov changer yes", function(value)
 	game.Workspace.Camera.FieldOfView = value
 end)
 
-Section2:NewDropdown("Teleport pet", "Teleport to the pet", {"Cat", "Fox", "Bear", "Mouse", "Shadow Dominus", "Bat", "Light Bat", "Bunny", "Shark", "Jellyfish", "Burger", "Ice Golem", "Starfish", "Water Dragon", "Cow", "Spikeball", "Lava Lord", "Reindeer", "Builder", "Snowman", "Mythical Reindeer", "Gumdrop", "Mage", "Baby Dragon", "Anglerfish", "Demonic Dominus", "Panda", "Scorpion", "Koala", "Demon Bat", "Hell Scorpion", "Angel", "Mythical Crab", "Cyborg", "Robot", "Skeleton Deer", "Pig", "Duck", "Crab", "Skeletor Bear", "Skeleton Dog", "Destroyer", "Reaper", "Sea Monster", "Bull", "Octopus Lord", "Pumpkin", "Storm Cloud", "Cloud", "Turkey", "Bee", "Monkey", "Donut", "Strawberry", "Golden Cat", "Dog", "Light Dragon", "Lava Beast", "Octohex", "Buttermyths", "Zombie Dragon", "Zap", "Angelfly", "Bot Overlord", "Ultimus} function(text)
-    getgenv().pet = text
-end)
-
-Section2:NewButton("Teleport to selected pet", "yes", function()
-    for _,v in pairs(game.Workspace:GetChildren()) do
-        if v.Name == getgenv().pet then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v:FindFirstChildOfClass("Part").Position)
-            break
-        end
-    end
-end)
-
-Section2:NewToggle("Auto tame selected pet", "yes", function(value)
-    getgenv().atame = value
-    if value then
-        atame()
-    end
-end)
 
 Section6:NewKeybind("Toggle the ui lol", "yeah", Enum.KeyCode.F6, function()
 	Library:ToggleUI()
