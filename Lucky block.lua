@@ -95,7 +95,7 @@ Section1:NewButton("Give RainbowBlock item", "gives an item from the RainbowBloc
 game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
 end)
 
-Section1:NewButton("Clear inventor,", "Clears your backpack", function()
+Section1:NewButton("Clear inventory", "Clears your backpack", function()
 for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
 v:Destroy()
 end
