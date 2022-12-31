@@ -276,7 +276,7 @@ end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
-local Window = Library.CreateLib("WFS PWNERS", "Sentinel")
+local Window = Library.CreateLib("WFS PWNERS", "Ocean")
 
 local Tab1 = Window:NewTab("Main")
 local Tab2 = Window:NewTab("Misc")
