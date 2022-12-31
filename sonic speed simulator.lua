@@ -191,7 +191,7 @@ Section2:NewButton("Unlock all worlds", "Unlocks all worlds for you", function()
     unlockallworlds()
 end)
 
-Section2:NewDropdown("DropdownText", "DropdownInf", {"Sonic", "Tails", "Knuckles"}, function(text)
+Section2:NewDropdown("Unlock character", "DropdownInf", {"Sonic", "Tails", "Knuckles"}, function(text)
     game:GetService("ReplicatedStorage").Knit.Services.CharacterService.RE.CharacterDied:FireServer()
     wait(0.3)
     local args = {[1] = "Green Hill"}
