@@ -152,7 +152,7 @@ UITextSizeConstraint.MaxTextSize = 30
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Test.lua"))();
 
-local Window = Library.CreateLib("SPS PWNERS", "Sentinel")
+local Window = Library.CreateLib("SPS PWNERS", "Ocean")
 
 local Tab1 = Window:NewTab("Farm")
 local Tab2 = Window:NewTab("User")
