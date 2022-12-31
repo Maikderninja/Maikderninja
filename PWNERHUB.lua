@@ -102,6 +102,9 @@ Load.MouseButton1Down:Connect(function()
 	if game.PlaceId == 3276265788 then
 		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/legends%20of%20speed%20desert.lua"), true))()
 	end
+        if game.PlaceId == 662417684 then
+		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/Lucky%20block.lua"), true))()
+        end
 	Loader:Destroy()
 end)
 
