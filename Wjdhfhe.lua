@@ -18,6 +18,8 @@ local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
 
 --Properties:
 
+Chose.DisplayOrder = 999999998
+
 Chose.Name = "Chose"
 Chose.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Chose.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
