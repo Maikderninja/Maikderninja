@@ -1,20 +1,16 @@
-getgenv().DiscordWebhook = "https://discord.com/api/webhooks/1030813809562091682/BJyEUpp_cw53WKznqIW0-2DX6YfIYtAlu0R4Q_PHwx6YDFzMOCzV6fEEh1_v-CmUYjGe" -- Discord Webhook Here
-getgenv().embedcolor = "0xf54747" -- Embed Body Color (On left Side of the Embed, You can get HEX Code above ☝) 
 
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nadir3709/DaHoodAntiCheat/main/Bypass"))()
 
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
  
-Notification.new("success", "Loaded", "Dahood PWNER Loaded!")
+
 
 local PhantomForcesWindow = Library:NewWindow("Combat")
 
 local KillingCheats = PhantomForcesWindow:NewSection("Combat")
  
 KillingCheats:CreateButton("Silent aim", function()
-Notification.new("success", "Loaded", "Credits to Stefanuk12 for Silent Aim")
 
 -- // Dependencies
 local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Aiming/main/Examples/AimLock.lua"))()
