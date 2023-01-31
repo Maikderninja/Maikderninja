@@ -294,9 +294,13 @@ setclipboard("https://discord.gg/rQEHvHFGNf")
 end)
 
 KillingCheats:CreateButton("Spin bot", function()
-game.Players.LocalPlayer.Character:WaitForChild("Humanoid").AutoRotate = false
-               local spin = Instance.new('BodyAngularVelocity', game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart'))
-               spin.AngularVelocity = Vector3.new(0, math.random(-60000, 55000), 0)
-               spin.MaxTorque = Vector3.new(0, 35000, 0)
-
+while true do
+    wait(0.1)
+        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").AutoRotate = false
+                local spin = Instance.new('BodyAngularVelocity', game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart'))
+                spin.AngularVelocity = Vector3.new(0, math.random(-60000, 55000), 0)
+                spin.MaxTorque = Vector3.new(0, 35000, 0)
+                wait()
+          spin:Destroy()
+    end
 end)
