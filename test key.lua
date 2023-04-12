@@ -1,3 +1,3 @@
-return {
-"lol2"
-}
+local key = "TEST_KEY"
+
+return key
