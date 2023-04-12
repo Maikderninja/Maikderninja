@@ -1,3 +1,3 @@
 return {
-"lol"
+"lol2"
 }
