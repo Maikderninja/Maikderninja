@@ -1,1 +1,3 @@
-"test key"
+return {
+ "lol"
+ }
