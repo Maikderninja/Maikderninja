@@ -1,1 +1,3 @@
-lol
+return {
+  "lol"
+}
