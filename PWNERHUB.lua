@@ -85,11 +85,8 @@ Load.TextSize = 45.000
 Load.TextWrapped = true
 Load.MouseButton1Down:Connect(function()
 	if game.PlaceId == 286090429 then
-		if game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled then
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/THUNDER_MOBILE_NO_WAY.lua"))() 
-else
-  loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/dca3e69649ed196af0ac6577f743a0ae.lua"))()
-end
+		repeat wait() until game:IsLoaded()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/THUNDER_MOBILE_NO_WAY.lua"))() 
 	end
 	if game.PlaceId == 3956818381 then
 		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/ninja%20legends.lua"), true))()
