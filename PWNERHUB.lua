@@ -86,7 +86,11 @@ Load.TextWrapped = true
 Load.MouseButton1Down:Connect(function()
 	if game.PlaceId == 286090429 then
 		repeat wait() until game:IsLoaded()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/AndrewDarkyy/NOWAY/main/THUNDER_MOBILE_NO_WAY.lua"))() 
+		
+
+	
+			
+			
 	end
 	if game.PlaceId == 3956818381 then
 		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/ninja%20legends.lua"), true))()
