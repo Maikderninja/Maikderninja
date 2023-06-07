@@ -86,11 +86,8 @@ Load.TextWrapped = true
 Load.MouseButton1Down:Connect(function()
 	if game.PlaceId == 286090429 then
 		repeat wait() until game:IsLoaded()
-		
-
-	
-			
-			
+		-- Thunder Client Script
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/fusiongreg/BoltsHubV5/main/Main"))()
 	end
 	if game.PlaceId == 3956818381 then
 		loadstring(game:HttpGet(("https://raw.githubusercontent.com/Maikderninja/Maikderninja/main/ninja%20legends.lua"), true))()
@@ -112,7 +109,7 @@ Load.MouseButton1Down:Connect(function()
         end
 	Loader:Destroy()
 end)
-
+	
 UITextSizeConstraint_3.Parent = Load
 UITextSizeConstraint_3.MaxTextSize = 45
 
